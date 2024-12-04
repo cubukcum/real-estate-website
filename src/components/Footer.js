@@ -1,11 +1,75 @@
 import React from "react";
+import "../styles/Footer.css";
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <div>
-      <h1>This is Footer</h1>
-    </div>
-  );
-};
+    <footer className="footer">
+      <div className="footer-content">
+        {/* Company Info */}
+        <div className="footer-section">
+          <h2>Company Name</h2>
+          <p>Building the future, one project at a time.</p>
+          <p>© 2024 Company Name. All rights reserved.</p>
+        </div>
 
-export default Footer;
+        {/* Quick Links */}
+        <div className="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/about">About</a>
+            </li>
+            <li>
+              <a href="/projects">Projects</a>
+            </li>
+            <li>
+              <a href="/contact">Contact</a>
+            </li>
+            <li>
+              <a href="/privacy-policy">Privacy Policy</a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Contact Info */}
+        <div className="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: info@constructionco.com</p>
+          <p>Phone: +1 234 567 890</p>
+          <p>Address: 123 Main St, Anytown, Country</p>
+        </div>
+
+        {/* Social Media */}
+        <div className="footer-section">
+          <h3>Follow Us</h3>
+          <div className="social-icons">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-facebook-f"></i>
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
