@@ -13,7 +13,7 @@ import React from "react";
 import "../styles/ProjectCard.css";
 
 function ProjectCard({
-  image = "../assets/sample-project1.jpeg",
+  image,
   title,
   builtDate,
   totalApartments,
