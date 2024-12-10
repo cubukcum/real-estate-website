@@ -1,11 +1,14 @@
 import React from "react";
+import TopBanner from "../components/TopBanner";
+import FeaturesSection from "../components/FeaturesSection";
+import AchievementsSection from "../components/AchievementsSection";
 
 const HomePage = () => {
   return (
     <div>
-      <h1>Welcome to [Construction Company]</h1>
-      <p>Your dream home awaits. Explore our projects below.</p>
-      {/* Add featured projects here */}
+      <TopBanner />
+      <FeaturesSection />
+      <AchievementsSection />
     </div>
   );
 };
