@@ -1,0 +1,43 @@
+.project-detail-page {
+  padding: 20px;
+}
+
+.project-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.main-image-container {
+  text-align: center;
+}
+
+.main-image {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.project-details p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.project-details a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.project-details a:hover {
+  text-decoration: underline;
+}
+
+.project-gallery img {
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.project-gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
