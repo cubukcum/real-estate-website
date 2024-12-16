@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const AdminLogin = () => {
@@ -6,26 +7,24 @@ const AdminLogin = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate API call for authentication
-    const response = await fetch("/api/admin/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-
-    if (response.ok) {
+    try {
+      const response = await axios.post("http://localhost:5000/admin/login", {
+        email,
+        password,
+      });
+      localStorage.setItem("token", response.data.token);
       navigate("/admin/dashboard");
-    } else {
-      alert("Invalid login credentials");
+    } catch (error) {
+      alert("Login failed. Please check your credentials.");
     }
   };
 
   return (
-    <div>
-      <h1>Admin Login</h1>
-      <form onSubmit={handleLogin}>
+    <div className="admin-login">
+      <h2>Admin Login</h2>
+      <form onSubmit={handleSubmit}>
         <input
           type="email"
           placeholder="Email"
