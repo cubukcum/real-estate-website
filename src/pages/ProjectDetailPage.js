@@ -7,32 +7,19 @@ import projectImage1 from "../assets/project-image1.jpeg";
 import projectImage2 from "../assets/project-image2.jpeg";
 import projectImage3 from "../assets/project-image3.jpeg";
 import background1 from "../assets/about-page/background1.jpg";
+import axios from "axios";
 
 const ProjectDetailPage = () => {
   const { id } = useParams();
   const [project, setProject] = useState(null);
-
+  const galleryImages = [projectImage1, projectImage2, projectImage3];
   useEffect(() => {
-    const fetchProjectData = async () => {
-      const projectData = {
-        id: id,
-        title: "Sunrise Residency",
-        address: "123 Main Street, Downtown City",
-        googleMapsLink: "https://goo.gl/maps/example",
-        constructionArea: "10,000 sq ft",
-        totalApartments: 50,
-        roomNumbers: "1BHK, 2BHK, 3BHK",
-        startDate: "2022-01-01",
-        deliveryDate: "2024-12-31",
-        description:
-          "Sunrise Residency is a modern apartment complex offering luxurious living with a host of amenities, including a swimming pool, gym, and 24/7 security.",
-        mainImage: mainImage,
-        galleryImages: [projectImage1, projectImage2, projectImage3],
-      };
-      setProject(projectData);
-    };
-
-    fetchProjectData();
+    axios
+      .get(`http://localhost:5000/projects/${id}`)
+      .then((response) => setProject(response.data))
+      .catch((error) =>
+        console.error("Error fetching project details:", error)
+      );
   }, [id]);
 
   if (!project) {
@@ -46,7 +33,7 @@ const ProjectDetailPage = () => {
       {/* Main Image */}
       <div className="main-image-container mb-4">
         <img
-          src={project.mainImage}
+          src={mainImage}
           alt={project.title}
           className="main-image img-fluid rounded"
         />
@@ -58,7 +45,7 @@ const ProjectDetailPage = () => {
           <p>
             <strong>Address:</strong>{" "}
             <a
-              href={project.googleMapsLink}
+              href={"https://goo.gl/maps/example"}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -66,21 +53,22 @@ const ProjectDetailPage = () => {
             </a>
           </p>
           <p>
-            <strong>Total Construction Area:</strong> {project.constructionArea}
+            <strong>Total Construction Area:</strong>{" "}
+            {project.totalconstructionarea}
           </p>
           <p>
-            <strong>Total Apartments:</strong> {project.totalApartments}
+            <strong>Total Apartments:</strong> {project.totalapartments}
           </p>
           <p>
-            <strong>Room Types:</strong> {project.roomNumbers}
+            <strong>Room Types:</strong> {project.roomtype}
           </p>
         </div>
         <div className="col-md-6">
           <p>
-            <strong>Start Date:</strong> {project.startDate}
+            <strong>Start Date:</strong> {project.startdate}
           </p>
           <p>
-            <strong>Delivery Date:</strong> {project.deliveryDate}
+            <strong>Delivery Date:</strong> {project.deliverydate}
           </p>
           <p>
             <strong>Description:</strong>
@@ -92,7 +80,7 @@ const ProjectDetailPage = () => {
       {/* Image Gallery */}
       <h2>Gallery</h2>
       <div className="row project-gallery">
-        {project.galleryImages.map((image, index) => (
+        {galleryImages.map((image, index) => (
           <div key={index} className="col-md-4 mb-3">
             <img
               src={image}
