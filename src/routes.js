@@ -6,23 +6,114 @@ import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 import AdminLogin from "./admin/AdminLogin";
 import AdminDashboard from "./admin/AdminDashboard";
+import DashboardOverview from "./admin/DashboardOverview";
+import ManageProjects from "./admin/ManageProjects";
+// import AddProjectForm from "./admin/AddProjectForm";
+// import EditProjectForm from "./admin/EditProjectForm";
+import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-
+import AdminNavbar from "./components/AdminNavbar"; // Import Admin Navbar
+import AdminLayout from "./layouts/AdminLayout";
 function App() {
   return (
     <Router>
-      <Navbar />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/projects/:id" element={<ProjectDetailPage />} />
+        {/* Public Routes */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Navbar />
+              <HomePage />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/projects"
+          element={
+            <>
+              <Navbar />
+              <ProjectsPage />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <>
+              <Navbar />
+              <AboutPage />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <>
+              <Navbar />
+              <ContactPage />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/projects/:id"
+          element={
+            <>
+              <Navbar />
+              <ProjectDetailPage />
+              <Footer />
+            </>
+          }
+        />
         <Route path="/admin" element={<AdminLogin />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+
+        {/* Admin Routes */}
+        <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedRoute>
+              <AdminLayout>
+                <AdminDashboard />
+              </AdminLayout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/manage-projects"
+          element={
+            <ProtectedRoute>
+              <AdminLayout>
+                <ManageProjects />
+              </AdminLayout>
+            </ProtectedRoute>
+          }
+        />
+        {/* <Route
+          path="/admin/add-project"
+          element={
+            <ProtectedRoute>
+              <AdminLayout>
+                <AddProjectForm />
+              </AdminLayout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/edit-project/:id"
+          element={
+            <ProtectedRoute>
+              <AdminLayout>
+                <EditProjectForm />
+              </AdminLayout>
+            </ProtectedRoute>
+          }
+        /> */}
       </Routes>
-      <Footer />
     </Router>
   );
 }
