@@ -15,7 +15,7 @@ const ProjectDetailPage = () => {
   const galleryImages = [projectImage1, projectImage2, projectImage3];
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/projects/${id}`)
+      .get(`${process.env.REACT_APP_API_URL}/projects/${id}`)
       .then((response) => setProject(response.data))
       .catch((error) =>
         console.error("Error fetching project details:", error)

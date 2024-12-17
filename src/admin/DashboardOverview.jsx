@@ -13,7 +13,7 @@ const DashboardOverview = () => {
 
     // Fetch dashboard stats from backend
     axios
-      .get("http://localhost:5000/admin/stats", {
+      .get(`${process.env.REACT_APP_API_URL}/admin/stats`, {
         headers: { Authorization: token },
       })
       .then((response) => setStats(response.data))

@@ -11,7 +11,7 @@ const ProjectsPage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/projects")
+      .get(`${process.env.REACT_APP_API_URL}/projects`)
       .then((response) => setProjects(response.data))
       .catch((error) => console.error("Error fetching projects:", error));
   }, []);

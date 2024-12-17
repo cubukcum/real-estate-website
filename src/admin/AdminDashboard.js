@@ -15,13 +15,13 @@ const AdminDashboard = () => {
     }
 
     axios
-      .get("http://localhost:5000/admin/verify-token", {
+      .get(`${process.env.REACT_APP_API_URL}/admin/verify-token`, {
         headers: { Authorization: token },
       })
       .then(() => {
         // Token is valid, fetch projects
         axios
-          .get("http://localhost:5000/projects", {
+          .get(`${process.env.REACT_APP_API_URL}/projects`, {
             headers: { Authorization: token },
           })
           .then((response) => setProjects(response.data))
@@ -36,7 +36,7 @@ const AdminDashboard = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:5000/projects/${id}`, {
+      .delete(`${process.env.REACT_APP_API_URL}/projects/${id}`, {
         headers: { Authorization: token },
       })
       .then(() => setProjects((prev) => prev.filter((p) => p.id !== id)))

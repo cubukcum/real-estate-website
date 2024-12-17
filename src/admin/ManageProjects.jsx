@@ -9,7 +9,7 @@ const ManageProjects = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/projects", {
+      .get(`${process.env.REACT_APP_API_URL}/projects`, {
         headers: { Authorization: token },
       })
       .then((response) => setProjects(response.data))
@@ -18,7 +18,7 @@ const ManageProjects = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:5000/projects/${id}`, {
+      .delete(`${process.env.REACT_APP_API_URL}/projects/${id}`, {
         headers: { Authorization: token },
       })
       .then(() => setProjects((prev) => prev.filter((p) => p.id !== id)))
