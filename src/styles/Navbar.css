@@ -1,11 +1,14 @@
 .nav {
-  background-color: #333;
-  color: white;
+  color: rgb(201, 163, 128);
   display: flex;
   justify-content: space-between;
   align-items: stretch;
   gap: 2rem;
   padding: 0 1rem;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  border-radius: 30px;
 }
 
 .site-title {
@@ -28,9 +31,9 @@
   align-items: center;
   padding: 0.25rem;
 }
-.nav li.active {
+/* .nav li.active {
   background-color: #555;
 }
 .nav li:hover {
   background-color: #777;
-}
+} */
