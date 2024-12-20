@@ -1,0 +1,81 @@
+.admin-login-container {
+  position: relative; /* Establish a containing block for pseudo-elements */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Optional subtle background color */
+}
+
+.admin-login-container::before {
+  content: ""; /* Pseudo-element to hold the logo */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("../assets/company-logo.jpg"); /* Replace with your logo path */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%; /* Adjust the size of the logo */
+  width: 300px; /* Adjust logo dimensions */
+  height: 300px;
+  opacity: 1; /* Makes the logo transparent */
+  z-index: 1; /* Places it behind the form */
+}
+
+.admin-login-form {
+  position: relative; /* Keep form on top */
+  z-index: 2; /* Ensure it is above the logo */
+  background: rgba(
+    255,
+    255,
+    255,
+    0.95
+  ); /* Slightly opaque white background for form */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  width: 100%;
+  max-width: 400px;
+}
+
+.admin-login-form .form-label {
+  font-weight: bold;
+  color: #333;
+}
+
+.admin-login-form .form-control {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1rem;
+}
+
+.admin-login-form .form-control:focus {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  border-color: #007bff;
+}
+
+.admin-login-form .btn-primary {
+  background-color: #007bff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.admin-login-form .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.admin-login-form .form-text {
+  color: #666;
+  font-size: 0.85rem;
+}
