@@ -1,5 +1,5 @@
 .top-banner {
-  background: url("../assets/banner-image.jpg") center/cover no-repeat;
+  background: url("../assets/home-image.jpg") center/cover no-repeat;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -23,6 +23,7 @@
 .top-banner-content {
   position: relative;
   z-index: 2;
+  margin-top: -35%;
 }
 
 .banner-title {
@@ -53,15 +54,4 @@
 
 .explore-btn:hover {
   background-color: #e65b50;
-}
-
-.contact-btn {
-  background-color: transparent;
-  border: 2px solid #fff;
-  color: #fff;
-}
-
-.contact-btn:hover {
-  background-color: #fff;
-  color: #333;
 }

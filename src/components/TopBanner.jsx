@@ -11,7 +11,6 @@ function TopBanner() {
         </p>
         <div className="banner-buttons">
           <button className="btn explore-btn">Explore Projects</button>
-          <button className="btn contact-btn">Contact Us</button>
         </div>
       </div>
     </div>
