@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useMatch, useResolvedPath, useNavigate } from "react-router-dom";
-import "../styles/Navbar.css";
+import "../styles/AdminNavbar.css"
 
 export default function AdminNavbar() {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ export default function AdminNavbar() {
         <CustomLink to="/admin/dashboard">Dashboard</CustomLink>
         <CustomLink to="/admin/manage-projects">My Projects</CustomLink>
         <li>
-          <button onClick={handleLogout}>Logout</button>
+          <button className="nav-button" onClick={handleLogout}>Logout</button>
         </li>
       </ul>
     </nav>
