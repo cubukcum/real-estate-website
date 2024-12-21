@@ -4,6 +4,7 @@ import "../styles/Navbar.css";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isNavExpanded, setIsNavExpanded] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,20 +15,44 @@ export default function Navbar() {
       }
     };
 
+    const handleClickOutside = (event) => {
+      const nav = document.querySelector('.nav');
+      if (nav && !nav.contains(event.target)) {
+        setIsNavExpanded(false);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
+
+  const handleLinkClick = () => {
+    setIsNavExpanded(false);
+  };
 
   return (
     <nav className={`nav ${isScrolled ? "scrolled" : ""}`}>
       <Link to="/" className="site-title">
         Site Name
       </Link>
-      <ul>
-        <CustomLink to="/">Home</CustomLink>
-        <CustomLink to="/about">About</CustomLink>
-        <CustomLink to="/projects">Projects</CustomLink>
-        <CustomLink to="/contact">Contact</CustomLink>
+      <button 
+        className="hamburger"
+        onClick={() => setIsNavExpanded(!isNavExpanded)}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul className={isNavExpanded ? "expanded" : ""}>
+        <CustomLink to="/" onClick={handleLinkClick}>Home</CustomLink>
+        <CustomLink to="/about" onClick={handleLinkClick}>About</CustomLink>
+        <CustomLink to="/projects" onClick={handleLinkClick}>Projects</CustomLink>
+        <CustomLink to="/contact" onClick={handleLinkClick}>Contact</CustomLink>
       </ul>
     </nav>
   );
