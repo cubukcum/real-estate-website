@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/AboutPage.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import background1 from "../assets/about-page/background1.jpg";
 import background2 from "../assets/about-page/background2.jpg";
 import background3 from "../assets/about-page/background3.jpg";

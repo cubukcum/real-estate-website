@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../styles/ProjectDetailPage.css";
-import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap for styling
 import mainImage from "../assets/project-main-image.jpeg";
 import projectImage1 from "../assets/project-image1.jpeg";
 import projectImage2 from "../assets/project-image2.jpeg";
