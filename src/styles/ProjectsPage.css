@@ -4,4 +4,31 @@
   gap: 20px;
   padding: 20px;
   background-color: #f0f0f0;
+  justify-items: center; /* Centers items horizontally in their grid cells */
+}
+
+.projects-container {
+  padding-top: 80px; /* Adjust this value based on your navbar height */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.projects-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: 600;
+  position: relative;
+}
+
+.projects-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #007bff; /* Or your primary color */
 }

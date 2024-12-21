@@ -15,11 +15,11 @@ const ProjectsPage = () => {
       .then((response) => setProjects(response.data))
       .catch((error) => console.error("Error fetching projects:", error));
   }, []);
-  console.log(projects);
+
 
   return (
-    <div>
-      <h2>Our Projects</h2>
+    <div className="projects-container">
+      <h2 className="projects-title">Our Projects</h2>
       <div className="project-list">
         {projects?.map((project, index) => (
           <Link key={project.id} to={`/projects/${project.id}`}>
