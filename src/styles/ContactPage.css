@@ -1,0 +1,47 @@
+.contact-container {
+  padding: 5rem 1rem;
+}
+
+.contact-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin: 2rem 0;
+}
+
+.contact-card h1 {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.contact-input {
+  border: 1px solid #e0e0e0;
+  padding: 0.8rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.contact-input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+}
+
+.contact-button {
+  background-color: #4a90e2;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #357abd;
+  transform: translateY(-2px);
+}
+
+textarea.contact-input {
+  resize: none;
+} 
