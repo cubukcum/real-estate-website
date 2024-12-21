@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/TopBanner.css";
 
 function TopBanner() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   return (
-    <div className="top-banner">
+    <div className={`top-banner ${isLoaded ? 'loaded' : ''}`}>
       <div className="top-banner-content">
         <h1 className="banner-title">Welcome to [Your Company Name]</h1>
         <p className="banner-subtitle">

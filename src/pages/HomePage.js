@@ -5,7 +5,7 @@ import AchievementsSection from "../components/AchievementsSection";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="home-page">
       <TopBanner />
       <FeaturesSection />
       <AchievementsSection />
