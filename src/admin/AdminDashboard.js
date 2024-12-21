@@ -43,11 +43,6 @@ const AdminDashboard = () => {
       .catch((error) => console.error("Error deleting project:", error));
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("token"); // Remove token on logout
-    navigate("/admin");
-  };
-
   return (
     <div className="admin-dashboard">
       <h2>Admin Dashboard</h2>
@@ -59,7 +54,6 @@ const AdminDashboard = () => {
           </div>
         ))}
       </div>
-      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 };
