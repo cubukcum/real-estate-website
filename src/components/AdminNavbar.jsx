@@ -11,15 +11,15 @@ export default function AdminNavbar() {
   };
 
   return (
-    <nav className="nav">
-      <Link to="/" className="site-title">
+    <nav className="admin-nav">
+      <Link to="/" className="admin-site-title">
         Site Name
       </Link>
       <ul>
         <CustomLink to="/admin/dashboard">Dashboard</CustomLink>
         <CustomLink to="/admin/manage-projects">My Projects</CustomLink>
         <li>
-          <button className="nav-button" onClick={handleLogout}>Logout</button>
+          <button className="admin-nav-button" onClick={handleLogout}>Logout</button>
         </li>
       </ul>
     </nav>

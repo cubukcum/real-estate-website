@@ -1,4 +1,4 @@
-.nav {
+.admin-nav {
   color: rgb(201, 163, 128);
   display: flex;
   justify-content: space-between;
@@ -14,11 +14,11 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.site-title {
+.admin-site-title {
   font-size: 2rem;
 }
 
-.nav ul {
+.admin-nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -26,7 +26,7 @@
   gap: 1rem;
 }
 
-.nav a, .nav-button {
+.admin-nav a, .admin-nav-button {
   color: inherit;
   text-decoration: none;
   height: 100%;
@@ -38,11 +38,11 @@
   cursor: pointer;
 }
 
-.nav-button:hover {
+.admin-nav-button:hover {
   text-decoration: underline;
 }
 
-.hamburger {
+.admin-hamburger {
   display: none;
   border: none;
   background: none;
@@ -50,7 +50,7 @@
   padding: 0.5rem;
 }
 
-.hamburger span {
+.admin-hamburger span {
   display: block;
   width: 25px;
   height: 3px;
@@ -61,18 +61,18 @@
 }
 
 @media (max-width: 768px) {
-  .hamburger {
+  .admin-hamburger {
     display: block;
     padding: 0.25rem;
     margin-right: 0.5rem;
   }
 
-  .nav {
+  .admin-nav {
     flex-wrap: wrap;
     padding: 0 1rem;
   }
 
-  .nav ul {
+  .admin-nav ul {
     display: none;
     width: 100%;
     flex-direction: column;
@@ -84,15 +84,15 @@
     border-radius: 0 0 30px 30px;
   }
 
-  .nav ul.expanded {
+  .admin-nav ul.admin-expanded {
     display: flex;
   }
 
-  .nav a, .nav-button {
+  .admin-nav a, .admin-nav-button {
     padding: 0.5rem 1rem;
   }
 
-  .site-title {
+  .admin-site-title {
     font-size: 1.5rem;
   }
-} 
+}
