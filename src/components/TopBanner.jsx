@@ -10,7 +10,7 @@ function TopBanner() {
           Building Dreams, Brick by Brick. Discover Your Perfect Home.
         </p>
         <div className="banner-buttons">
-          <button className="btn explore-btn">Explore Projects</button>
+          <button className="btn explore-btn" onClick={() => window.location.href = '/projects'}>Explore Projects</button>
         </div>
       </div>
     </div>
