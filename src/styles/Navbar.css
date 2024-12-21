@@ -9,6 +9,14 @@
   z-index: 100;
   width: 100%;
   border-radius: 30px;
+  transition: background-color 0.3s ease-in-out;
+  background-color: transparent;
+}
+
+.nav.scrolled {
+  background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+  backdrop-filter: blur(8px); /* Optional: adds a blur effect to the background */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: adds subtle shadow */
 }
 
 .site-title {
