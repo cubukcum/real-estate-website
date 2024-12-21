@@ -1,13 +1,81 @@
 .contact-container {
-  padding: 5rem 1rem;
+  padding: 4rem 1rem;
+  background-color: #f8f9fa;
 }
 
-.contact-card {
+.contact-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-title {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.reach-out-section {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.message-section {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.map-section {
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+  margin-top: 2rem;
+}
+
+.contact-content,
+.contact-card,
+.map-section {
   background: white;
   padding: 2.5rem;
   border-radius: 15px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  margin: 2rem 0;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.contact-subtitle {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reach-out-section,
+  .message-section,
+  .map-section {
+    grid-column: 1 / 2;
+  }
+
+  .reach-out-section {
+    grid-row: 1 / 2;
+  }
+
+  .message-section {
+    grid-row: 2 / 3;
+  }
+
+  .map-section {
+    grid-row: 3 / 4;
+  }
 }
 
 .contact-card h1 {
@@ -44,4 +112,79 @@
 
 textarea.contact-input {
   resize: none;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  transition: transform 0.2s;
+}
+
+.contact-item:hover {
+  transform: translateX(5px);
+}
+
+.icon-wrapper {
+  width: 45px;
+  height: 45px;
+  background: #f8f9fa;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+.contact-text h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  color: #333;
+}
+
+.contact-text p {
+  margin: 0;
+  color: #666;
+}
+
+.social-media-icons {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  background: #f8f9fa;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background: #333;
+  color: white;
+  transform: translateY(-3px);
+}
+
+.map-container {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.map-container iframe {
+  border: none;
+  display: block;
 } 
