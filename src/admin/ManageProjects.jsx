@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Container, Table, Button } from "react-bootstrap";
-import "./ManageProjects.css";
+import { BsPlusLg } from 'react-icons/bs';
+import { FiEdit } from 'react-icons/fi';
+import { RiDeleteBinLine } from 'react-icons/ri';
+import "../styles/ManageProjects.css";
 
 const ManageProjects = () => {
   const [projects, setProjects] = useState([]);
@@ -39,7 +42,7 @@ const ManageProjects = () => {
           variant="success" 
           onClick={() => navigate("/admin/add-project")}
         >
-          <i className="fas fa-plus"></i> Add New Project
+          <BsPlusLg /> Add New Project
         </Button>
       </div>
       
@@ -76,14 +79,14 @@ const ManageProjects = () => {
                   size="sm"
                   onClick={() => handleEdit(project.id)}
                 >
-                  <i className="fas fa-edit"></i> Edit
+                  <FiEdit /> Edit
                 </Button>
                 <Button
                   variant="outline-danger"
                   size="sm"
                   onClick={() => handleDelete(project.id)}
                 >
-                  <i className="fas fa-trash"></i> Delete
+                  <RiDeleteBinLine /> Delete
                 </Button>
               </td>
             </tr>
