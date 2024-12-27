@@ -6,14 +6,13 @@ import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 import AdminLogin from "./admin/AdminLogin";
 import AdminDashboard from "./admin/AdminDashboard";
-import DashboardOverview from "./admin/DashboardOverview";
+// import DashboardOverview from "./admin/DashboardOverview";
 import ManageProjects from "./admin/ManageProjects";
 import AddProjectForm from "./admin/AddProjectForm";
-// import EditProjectForm from "./admin/EditProjectForm";
+import EditProjectForm from "./admin/EditProject";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import AdminNavbar from "./components/AdminNavbar"; // Import Admin Navbar
 import AdminLayout from "./layouts/AdminLayout";
 function App() {
   return (
@@ -103,7 +102,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-        {/* <Route
+        <Route
           path="/admin/edit-project/:id"
           element={
             <ProtectedRoute>
@@ -112,7 +111,7 @@ function App() {
               </AdminLayout>
             </ProtectedRoute>
           }
-        /> */}
+        />
       </Routes>
     </Router>
   );
