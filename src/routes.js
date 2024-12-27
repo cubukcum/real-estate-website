@@ -8,7 +8,7 @@ import AdminLogin from "./admin/AdminLogin";
 import AdminDashboard from "./admin/AdminDashboard";
 import DashboardOverview from "./admin/DashboardOverview";
 import ManageProjects from "./admin/ManageProjects";
-// import AddProjectForm from "./admin/AddProjectForm";
+import AddProjectForm from "./admin/AddProjectForm";
 // import EditProjectForm from "./admin/EditProjectForm";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
@@ -93,7 +93,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-        {/* <Route
+        <Route
           path="/admin/add-project"
           element={
             <ProtectedRoute>
@@ -103,7 +103,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route
+        {/* <Route
           path="/admin/edit-project/:id"
           element={
             <ProtectedRoute>
