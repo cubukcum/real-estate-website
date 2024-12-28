@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Card, Row, Col, Container } from "react-bootstrap";
-import { FaUsers, FaProjectDiagram, FaChartLine, FaCog } from "react-icons/fa";
+import { FaUsers, FaProjectDiagram, FaChartLine } from "react-icons/fa";
 import "../styles/AdminDashboard.css";
 
 const AdminDashboard = () => {
