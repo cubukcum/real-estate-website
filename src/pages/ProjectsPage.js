@@ -27,7 +27,8 @@ const ProjectsPage = () => {
               key={index}
               image={sampleImage1}
               title={project.title}
-              builtDate={project.startdate}
+              startDate={project.startdate}
+              deliveryDate={project.deliverydate}
               totalApartments={project.totalapartments}
               isAvailable={project.availableforsale}
             />
