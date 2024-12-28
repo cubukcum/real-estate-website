@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Form, Button, Alert } from 'react-bootstrap';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import "../styles/EditProject.css"
 
 const EditProject = () => {
   const { id } = useParams();
@@ -75,15 +76,16 @@ const EditProject = () => {
   };
 
   return (
-    <Container className="mt-4">
-      <h2>Edit Project</h2>
-      {error && <Alert variant="danger">{error}</Alert>}
-      {success && <Alert variant="success">{success}</Alert>}
+    <Container className="edit-project-container">
+      <h2 className="edit-project-title">Edit Project</h2>
+      {error && <Alert variant="danger" className="edit-project-alert edit-project-error">{error}</Alert>}
+      {success && <Alert variant="success" className="edit-project-alert edit-project-success">{success}</Alert>}
       
       <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3">
-          <Form.Label>Title</Form.Label>
+        <Form.Group className="edit-project-form-group">
+          <Form.Label className="edit-project-label">Title</Form.Label>
           <Form.Control
+            className="edit-project-input"
             type="text"
             name="title"
             value={project.title}
@@ -92,9 +94,10 @@ const EditProject = () => {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Address</Form.Label>
+        <Form.Group className="edit-project-form-group">
+          <Form.Label className="edit-project-label">Address</Form.Label>
           <Form.Control
+            className="edit-project-input"
             type="text"
             name="address"
             value={project.address}
@@ -103,9 +106,10 @@ const EditProject = () => {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Total Construction Area (sqm)</Form.Label>
+        <Form.Group className="edit-project-form-group">
+          <Form.Label className="edit-project-label">Total Construction Area (sqm)</Form.Label>
           <Form.Control
+            className="edit-project-input"
             type="number"
             name="totalconstructionarea"
             value={project.totalconstructionarea}
@@ -114,9 +118,10 @@ const EditProject = () => {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Total Apartments</Form.Label>
+        <Form.Group className="edit-project-form-group">
+          <Form.Label className="edit-project-label">Total Apartments</Form.Label>
           <Form.Control
+            className="edit-project-input"
             type="number"
             name="totalapartments"
             value={project.totalapartments}
@@ -125,9 +130,10 @@ const EditProject = () => {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Room Types</Form.Label>
+        <Form.Group className="edit-project-form-group">
+          <Form.Label className="edit-project-label">Room Types</Form.Label>
           <Form.Control
+            className="edit-project-input"
             type="text"
             name="roomtype"
             value={project.roomtype}
@@ -137,9 +143,10 @@ const EditProject = () => {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Start Date</Form.Label>
+        <Form.Group className="edit-project-form-group">
+          <Form.Label className="edit-project-label">Start Date</Form.Label>
           <Form.Control
+            className="edit-project-input"
             type="date"
             name="startdate"
             value={project.startdate}
@@ -148,9 +155,10 @@ const EditProject = () => {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Delivery Date</Form.Label>
+        <Form.Group className="edit-project-form-group">
+          <Form.Label className="edit-project-label">Delivery Date</Form.Label>
           <Form.Control
+            className="edit-project-input"
             type="date"
             name="deliverydate"
             value={project.deliverydate}
@@ -159,8 +167,9 @@ const EditProject = () => {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3">
+        <Form.Group className="edit-project-form-group">
           <Form.Check
+            className="edit-project-checkbox"
             type="checkbox"
             label="Available for Sale"
             name="availableforsale"
@@ -169,9 +178,10 @@ const EditProject = () => {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Description</Form.Label>
+        <Form.Group className="edit-project-form-group">
+          <Form.Label className="edit-project-label">Description</Form.Label>
           <Form.Control
+            className="edit-project-input edit-project-textarea"
             as="textarea"
             name="description"
             value={project.description}
@@ -180,7 +190,7 @@ const EditProject = () => {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className="edit-project-submit-btn">
           Update Project
         </Button>
       </Form>

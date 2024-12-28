@@ -1,0 +1,93 @@
+.edit-project-container {
+  max-width: 800px;
+  padding: 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 2rem auto;
+}
+
+.edit-project-title {
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #3498db;
+}
+
+.edit-project-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.edit-project-label {
+  font-weight: 600;
+  color: #34495e;
+  margin-bottom: 0.5rem;
+}
+
+.edit-project-input {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 0.75rem;
+  transition: border-color 0.3s ease;
+}
+
+.edit-project-input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+.edit-project-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.edit-project-checkbox {
+  margin-top: 0.5rem;
+}
+
+.edit-project-checkbox label {
+  font-weight: 500;
+  color: #34495e;
+}
+
+.edit-project-submit-btn {
+  background-color: #3498db;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.edit-project-submit-btn:hover {
+  background-color: #2980b9;
+  transform: translateY(-1px);
+}
+
+.edit-project-alert {
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+}
+
+.edit-project-success {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+.edit-project-error {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .edit-project-container {
+    padding: 1rem;
+    margin: 1rem;
+  }
+  
+  .edit-project-submit-btn {
+    width: 100%;
+  }
+}
