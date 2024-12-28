@@ -22,12 +22,14 @@ const ManageProjects = () => {
   }, [token]);
 
   const handleDelete = (id) => {
-    axios
-      .delete(`${process.env.REACT_APP_API_URL}/admin/delete-project/${id}`, {
-        headers: { Authorization: token },
-      })
-      .then(() => setProjects((prev) => prev.filter((p) => p.id !== id)))
-      .catch((error) => console.error("Error deleting project:", error));
+    if (window.confirm("Are you sure you want to delete this project? This action cannot be undone.")) {
+      axios
+        .delete(`${process.env.REACT_APP_API_URL}/admin/delete-project/${id}`, {
+          headers: { Authorization: token },
+        })
+        .then(() => setProjects((prev) => prev.filter((p) => p.id !== id)))
+        .catch((error) => console.error("Error deleting project:", error));
+    }
   };
 
   const handleEdit = (id) => {
