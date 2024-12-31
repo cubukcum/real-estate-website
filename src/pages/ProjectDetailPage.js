@@ -33,25 +33,25 @@ const ProjectDetailPage = () => {
   }
 
   return (
-    <div className="project-detail-page">
-      <div className="project-hero">
-        <h1 className="project-title">{project.title}</h1>
+    <div className="pdp-container">
+      <div className="pdp-hero">
+        <h1 className="pdp-title">{project.title}</h1>
       </div>
 
       {/* Main Image */}
-      <div className="main-image-container">
+      <div className="pdp-main-image-container">
         {images.length > 0 && (
           <img
             src={images[0].url}
             alt={project.title}
-            className="main-image rounded"
+            className="pdp-main-image rounded"
           />
         )}
       </div>
 
       {/* Project Details */}
       <div className="container">
-        <div className="project-details">
+        <div className="pdp-details">
           <div className="row">
             <div className="col-md-6">
               <p>
@@ -91,8 +91,8 @@ const ProjectDetailPage = () => {
         </div>
 
         {/* Gallery */}
-        <h2 className="gallery-title">Project Gallery</h2>
-        <div className="row project-gallery">
+        <h2 className="pdp-gallery-title">Project Gallery</h2>
+        <div className="row pdp-gallery">
           {images.slice(1).map((image, index) => (
             <div key={image.id} className="col-md-4">
               <img
