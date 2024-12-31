@@ -1,8 +1,8 @@
-.project-detail-page {
+.pdp-container {
   padding-top: 80px;
 }
 
-.project-hero {
+.pdp-hero {
   position: relative;
   margin: -80px -15px 40px;
   padding: 120px 0 60px;
@@ -11,27 +11,27 @@
   text-align: center;
 }
 
-.project-title {
+.pdp-title {
   font-size: 3.5rem;
   margin-bottom: 20px;
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.main-image-container {
+.pdp-main-image-container {
   margin: -60px auto 40px;
   max-width: 1200px;
   padding: 0 15px;
 }
 
-.main-image {
+.pdp-main-image {
   max-height: 600px;
   width: 100%;
   object-fit: cover;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-.project-details {
+.pdp-details {
   background: white;
   padding: 30px;
   border-radius: 12px;
@@ -39,33 +39,33 @@
   margin-bottom: 40px;
 }
 
-.project-details p {
+.pdp-details p {
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 15px;
   color: #444;
 }
 
-.project-details strong {
+.pdp-details strong {
   color: #222;
 }
 
-.project-gallery {
+.pdp-gallery {
   margin-top: 30px;
 }
 
-.gallery-title {
+.pdp-gallery-title {
   font-size: 2rem;
   margin-bottom: 30px;
   text-align: center;
   color: #333;
 }
 
-.project-gallery .col-md-4 {
+.pdp-gallery .col-md-4 {
   padding: 15px;
 }
 
-.project-gallery img {
+.pdp-gallery img {
   width: 100%;
   height: 250px;
   object-fit: cover;
@@ -73,7 +73,7 @@
   transition: all 0.3s ease;
 }
 
-.project-gallery img:hover {
+.pdp-gallery img:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
