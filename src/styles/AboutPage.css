@@ -49,20 +49,26 @@
   margin-bottom: 1.5rem;
   letter-spacing: 4px;
   text-transform: uppercase;
-  text-shadow: 2px 4px 6px rgba(0,0,0,0.2);
+  text-shadow: 2px 4px 6px rgba(0,0,0,0.3);
   animation: slideInFromLeft 1.2s ease-out;
   opacity: 0;
   animation-fill-mode: forwards;
+  color: var(--luxury-light);
+  background: linear-gradient(45deg, #FFFFFF, #D4AF37);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
   font-size: 1.5rem;
   font-weight: 300;
   letter-spacing: 4px;
-  text-shadow: 2px 4px 6px rgba(0,0,0,0.2);
+  text-shadow: 1px 2px 3px rgba(0,0,0,0.2);
   opacity: 0;
   animation: slideInFromLeft 1.2s ease-out 0.3s;
   animation-fill-mode: forwards;
+  color: #FAFAFA;
 }
 
 @keyframes slideInFromLeft {
