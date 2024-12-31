@@ -17,12 +17,6 @@ const AboutPage = () => {
         <div className="hero-content">
           <h1>Your Company Name</h1>
           <p className="hero-subtitle">Crafting Exceptional Living Experiences</p>
-          <div className="hero-separator" style={{ 
-            width: '60px', 
-            height: '2px', 
-            background: 'var(--luxury-gold)', 
-            margin: '2rem auto' 
-          }}></div>
         </div>
       </section>
 
