@@ -3,6 +3,7 @@ import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import '../styles/AddProjectForm.css';
+import ImageUpload from '../components/ImageUpload';
 
 const AddProjectForm = () => {
   const navigate = useNavigate();
@@ -17,15 +18,16 @@ const AddProjectForm = () => {
     availableForSale: false,
     description: ""
   });
+  const [projectImages, setProjectImages] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
 
     try {
-      await axios.post(
+      const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/admin/add-project`,
-        project,
+        { ...project, images: projectImages },
         {
           headers: { Authorization: token }
         }
@@ -153,6 +155,14 @@ const AddProjectForm = () => {
               name="availableForSale"
               checked={project.availableForSale}
               onChange={handleChange}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3">
+            <Form.Label>Project Images</Form.Label>
+            <ImageUpload 
+              projectId={null}
+              onImagesChange={setProjectImages}
             />
           </Form.Group>
 
