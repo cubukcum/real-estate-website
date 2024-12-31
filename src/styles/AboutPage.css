@@ -30,7 +30,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.25));
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
 }
 
 .hero-content {
@@ -38,32 +38,24 @@
   color: white;
   position: relative;
   z-index: 1;
-  padding: 3rem 4rem;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.08) 0%,
-    rgba(255, 255, 255, 0.03) 100%
-  );
-  backdrop-filter: blur(2px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
 }
 
 .hero-content h1 {
   font-size: 4.5rem;
-  font-weight: 400;
+  font-weight: 300;
   margin-bottom: 1.5rem;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   text-transform: uppercase;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  text-shadow: 2px 4px 6px rgba(0,0,0,0.2);
 }
 
 .hero-subtitle {
   font-size: 1.5rem;
   font-weight: 300;
-  letter-spacing: 3px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  letter-spacing: 4px;
+  text-shadow: 2px 4px 6px rgba(0,0,0,0.2);
+  opacity: 0.9;
 }
 
 .luxury-section {
