@@ -1,10 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import "../styles/AboutPage.css";
-import background1 from "../assets/about-page/background1.jpg";
 import background2 from "../assets/about-page/background2.jpg";
-import background3 from "../assets/about-page/background3.jpg";
-import background4 from "../assets/about-page/background4.jpg";
 import background5 from "../assets/about-page/background5.jpg";
 
 const AboutPage = () => {
