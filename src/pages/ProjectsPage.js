@@ -19,10 +19,14 @@ const ProjectsPage = () => {
 
   return (
     <div className="projects-container">
-      <h2 className="projects-title">Our Projects</h2>
+      <h2 className="projects-title">Featured Projects</h2>
       <div className="project-list">
         {projects?.map((project, index) => (
-          <Link key={project.id} to={`/projects/${project.id}`}>
+          <Link 
+            key={project.id} 
+            to={`/projects/${project.id}`}
+            className="project-link"
+          >
             <ProjectCard
               key={index}
               image={sampleImage1}
