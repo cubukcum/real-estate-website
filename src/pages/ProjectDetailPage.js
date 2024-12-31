@@ -9,6 +9,11 @@ const ProjectDetailPage = () => {
   const [project, setProject] = useState(null);
   const [images, setImages] = useState([]);
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+  };
+
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/projects/${id}`)
@@ -72,10 +77,10 @@ const ProjectDetailPage = () => {
             </div>
             <div className="col-md-6">
               <p>
-                <strong>Start Date:</strong> {project.startdate}
+                <strong>Start Date:</strong> {formatDate(project.startdate)}
               </p>
               <p>
-                <strong>Delivery Date:</strong> {project.deliverydate}
+                <strong>Delivery Date:</strong> {formatDate(project.deliverydate)}
               </p>
               <p>
                 <strong>Description:</strong>
