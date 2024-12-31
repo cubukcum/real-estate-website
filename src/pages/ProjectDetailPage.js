@@ -44,24 +44,24 @@ const ProjectDetailPage = () => {
         </div>
       </div>
 
-      <div className="pdp-main-image-container">
-        {images.length > 0 && (
-          <img
-            src={images[0].url}
-            alt={project.title}
-            className="pdp-main-image"
-          />
-        )}
-      </div>
-
       <div className="pdp-content-wrapper">
+        <div className="pdp-main-image-container">
+          {images.length > 0 && (
+            <img
+              src={images[0].url}
+              alt={project.title}
+              className="pdp-main-image"
+            />
+          )}
+        </div>
+
         <div className="pdp-details">
           <div className="pdp-details-grid">
             <div>
               <p>
                 <strong>Address:</strong>{" "}
                 <a
-                  href={"https://goo.gl/maps/example"}
+                  href={`https://maps.google.com/?q=${project.address}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
