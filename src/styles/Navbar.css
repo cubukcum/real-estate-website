@@ -1,5 +1,5 @@
 .nav {
-  color: #fff;
+  color: #f4c10f;
   display: flex;
   justify-content: space-between;
   align-items: stretch;
@@ -22,6 +22,7 @@
 
 .site-title {
   font-size: 2rem;
+  color: #f4c10f;
 }
 
 .nav ul {
@@ -33,7 +34,7 @@
 }
 
 .nav a {
-  color: #ddd;
+  color: #f4c10f;
   text-decoration: none;
   height: 100%;
   display: flex;
@@ -42,7 +43,8 @@
 }
 
 .nav a:hover {
-  color: #f4c10f;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(244, 193, 15, 0.5);
 }
 
 /* Add hamburger button styles */
