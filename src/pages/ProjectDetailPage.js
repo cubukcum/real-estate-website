@@ -35,7 +35,13 @@ const ProjectDetailPage = () => {
   return (
     <div className="pdp-container">
       <div className="pdp-hero">
-        <h1 className="pdp-title">{project.title}</h1>
+        <div className="pdp-title-wrapper">
+          <h1 className="pdp-title">{project.title}</h1>
+          <div className="pdp-hero-meta">
+            <span><i className="fas fa-map-marker-alt"></i> {project.address}</span>
+            <span><i className="fas fa-calendar"></i> {formatDate(project.deliverydate)}</span>
+          </div>
+        </div>
       </div>
 
       <div className="pdp-main-image-container">
