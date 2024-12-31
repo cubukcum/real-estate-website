@@ -1,8 +1,9 @@
 :root {
-  --luxury-gold: #C5A572;
+  --luxury-gold: #D4AF37;
   --luxury-dark: #1A1A1A;
-  --luxury-light: #F5F5F5;
-  --luxury-text: #333333;
+  --luxury-light: #FAFAFA;
+  --luxury-text: #2C2C2C;
+  --luxury-accent: #8B7355;
 }
 
 .about-page {
@@ -12,25 +13,43 @@
 }
 
 .hero-section {
-  height: 90vh;
+  height: 100vh;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
 }
 
 .hero-content {
   text-align: center;
   color: white;
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 4px;
 }
 
 .hero-content h1 {
-  font-size: 4rem;
-  font-weight: 300;
-  margin-bottom: 1rem;
-  letter-spacing: 2px;
+  font-size: 4.5rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
 .hero-subtitle {
@@ -69,19 +88,45 @@
 .luxury-card {
   background: white;
   border: none;
-  padding: 2rem;
+  padding: 3rem 2rem;
   height: 100%;
-  transition: transform 0.3s ease;
+  transition: all 0.4s ease;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--luxury-gold), transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.luxury-card:hover::before {
+  transform: scaleX(1);
 }
 
 .luxury-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-15px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 }
 
 .luxury-card i {
   color: var(--luxury-gold);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.luxury-card:hover i {
+  transform: scale(1.1);
 }
 
 .luxury-card .card-title {
