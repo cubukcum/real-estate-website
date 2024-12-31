@@ -1,43 +1,79 @@
 .project-detail-page {
-  padding: 20px;
+  padding-top: 80px;
 }
 
-.project-title {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.main-image-container {
+.project-hero {
+  position: relative;
+  margin: -80px -15px 40px;
+  padding: 120px 0 60px;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+  color: white;
   text-align: center;
 }
 
+.project-title {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.main-image-container {
+  margin: -60px auto 40px;
+  max-width: 1200px;
+  padding: 0 15px;
+}
+
 .main-image {
-  max-height: 400px;
+  max-height: 600px;
+  width: 100%;
   object-fit: cover;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.project-details {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 40px;
 }
 
 .project-details p {
-  font-size: 1rem;
-  margin-bottom: 10px;
-  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #444;
 }
 
-.project-details a {
-  color: #007bff;
-  text-decoration: none;
+.project-details strong {
+  color: #222;
 }
 
-.project-details a:hover {
-  text-decoration: underline;
+.project-gallery {
+  margin-top: 30px;
+}
+
+.gallery-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #333;
+}
+
+.project-gallery .col-md-4 {
+  padding: 15px;
 }
 
 .project-gallery img {
-  border-radius: 8px;
-  transition: transform 0.3s ease;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: all 0.3s ease;
 }
 
 .project-gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
