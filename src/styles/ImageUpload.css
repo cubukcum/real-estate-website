@@ -1,0 +1,37 @@
+.image-upload-container {
+    margin: 1rem 0;
+}
+
+.upload-input {
+    margin-bottom: 1rem;
+}
+
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.image-preview {
+    position: relative;
+}
+
+.delete-image {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(255, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-image:hover {
+    background: rgba(255, 0, 0, 0.9);
+}

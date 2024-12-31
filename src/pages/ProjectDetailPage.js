@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../styles/ProjectDetailPage.css";
-import mainImage from "../assets/project-main-image.jpeg";
-import projectImage1 from "../assets/project-image1.jpeg";
-import projectImage2 from "../assets/project-image2.jpeg";
-import projectImage3 from "../assets/project-image3.jpeg";
 import background1 from "../assets/about-page/background1.jpg";
 import axios from "axios";
 
 const ProjectDetailPage = () => {
   const { id } = useParams();
   const [project, setProject] = useState(null);
-  const galleryImages = [projectImage1, projectImage2, projectImage3];
+  const [images, setImages] = useState([]);
+
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/projects/${id}`)
@@ -19,6 +16,11 @@ const ProjectDetailPage = () => {
       .catch((error) =>
         console.error("Error fetching project details:", error)
       );
+
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/projects/${id}/images`)
+      .then((response) => setImages(response.data))
+      .catch((error) => console.error("Error fetching images:", error));
   }, [id]);
 
   if (!project) {
@@ -29,13 +31,15 @@ const ProjectDetailPage = () => {
     <div className="project-detail-page container">
       <h1 className="project-title">{project.title}</h1>
 
-      {/* Main Image */}
+      {/* Main Image - show first image as main if available */}
       <div className="main-image-container mb-4">
-        <img
-          src={mainImage}
-          alt={project.title}
-          className="main-image img-fluid rounded"
-        />
+        {images.length > 0 && (
+          <img
+            src={images[0].url}
+            alt={project.title}
+            className="main-image img-fluid rounded"
+          />
+        )}
       </div>
 
       {/* Project Details */}
@@ -76,13 +80,13 @@ const ProjectDetailPage = () => {
         </div>
       </div>
 
-      {/* Image Gallery */}
+      {/* Updated Image Gallery */}
       <h2>Gallery</h2>
       <div className="row project-gallery">
-        {galleryImages.map((image, index) => (
-          <div key={index} className="col-md-4 mb-3">
+        {images.slice(1).map((image, index) => (
+          <div key={image.id} className="col-md-4 mb-3">
             <img
-              src={image}
+              src={image.url}
               alt={`Gallery ${index + 1}`}
               className="img-fluid rounded shadow-sm"
             />

@@ -3,6 +3,7 @@ import { Container, Form, Button, Alert } from 'react-bootstrap';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import "../styles/EditProject.css"
+import ImageUpload from '../components/ImageUpload';
 
 const EditProject = () => {
   const { id } = useParams();
@@ -20,6 +21,7 @@ const EditProject = () => {
     availableforsale: false,
     description: ''
   });
+  const [projectImages, setProjectImages] = useState([]);
 
   useEffect(() => {
     const fetchProject = async () => {
@@ -35,6 +37,7 @@ const EditProject = () => {
           availableforsale: response.data.availableforsale
         };
         setProject(projectData);
+        setProjectImages(response.data.images || []);
       } catch (error) {
         setError('Failed to fetch project details');
         console.error('Error:', error);
@@ -187,6 +190,15 @@ const EditProject = () => {
             value={project.description}
             onChange={handleChange}
             rows={3}
+          />
+        </Form.Group>
+
+        <Form.Group className="edit-project-form-group">
+          <Form.Label className="edit-project-label">Project Images</Form.Label>
+          <ImageUpload 
+            projectId={id}
+            existingImages={projectImages}
+            onImagesChange={setProjectImages}
           />
         </Form.Group>
 
