@@ -38,22 +38,20 @@ const ProjectDetailPage = () => {
         <h1 className="pdp-title">{project.title}</h1>
       </div>
 
-      {/* Main Image */}
       <div className="pdp-main-image-container">
         {images.length > 0 && (
           <img
             src={images[0].url}
             alt={project.title}
-            className="pdp-main-image rounded"
+            className="pdp-main-image"
           />
         )}
       </div>
 
-      {/* Project Details */}
-      <div className="container">
+      <div className="pdp-content-wrapper">
         <div className="pdp-details">
-          <div className="row">
-            <div className="col-md-6">
+          <div className="pdp-details-grid">
+            <div>
               <p>
                 <strong>Address:</strong>{" "}
                 <a
@@ -75,7 +73,7 @@ const ProjectDetailPage = () => {
                 <strong>Room Types:</strong> {project.roomtype}
               </p>
             </div>
-            <div className="col-md-6">
+            <div>
               <p>
                 <strong>Start Date:</strong> {formatDate(project.startdate)}
               </p>
@@ -90,18 +88,15 @@ const ProjectDetailPage = () => {
           </div>
         </div>
 
-        {/* Gallery */}
-        <h2 className="pdp-gallery-title">Project Gallery</h2>
-        <div className="row pdp-gallery">
-          {images.slice(1).map((image, index) => (
-            <div key={image.id} className="col-md-4">
-              <img
-                src={image.url}
-                alt={`Gallery ${index + 1}`}
-                className="img-fluid"
-              />
-            </div>
-          ))}
+        <div className="pdp-gallery-section">
+          <h2 className="pdp-gallery-title">Project Gallery</h2>
+          <div className="pdp-gallery">
+            {images.slice(1).map((image, index) => (
+              <div key={image.id} className="pdp-gallery-item">
+                <img src={image.url} alt={`Gallery ${index + 1}`} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
