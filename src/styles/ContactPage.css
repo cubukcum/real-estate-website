@@ -1,6 +1,6 @@
 .contact-container {
   padding: 4rem 1rem;
-  background-color: #f0f4f8;
+  background: linear-gradient(135deg, #f0f4f8 0%, #e0eaff 100%);
 }
 
 .contact-wrapper {
@@ -9,7 +9,10 @@
 }
 
 .section-title {
-  color: #1a365d;
+  background: linear-gradient(90deg, #2b6cb0 0%, #805ad5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   font-size: 2.5rem;
   font-weight: 600;
   margin-bottom: 3rem;
@@ -41,9 +44,24 @@
 .contact-card,
 .map-section {
   background: white;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
   padding: 2.5rem;
   border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.contact-content::before,
+.contact-card::before,
+.map-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #2b6cb0, #805ad5, #d53f8c);
 }
 
 .contact-subtitle {
@@ -97,7 +115,7 @@
 }
 
 .contact-button {
-  background-color: #2b6cb0;
+  background: linear-gradient(135deg, #2b6cb0 0%, #4c51bf 100%);
   border: none;
   padding: 0.8rem 2rem;
   font-weight: 500;
@@ -106,7 +124,7 @@
 }
 
 .contact-button:hover {
-  background-color: #1a4971;
+  background: linear-gradient(135deg, #1a4971 0%, #3c4099 100%);
   transform: translateY(-2px);
 }
 
@@ -129,13 +147,13 @@ textarea.contact-input {
 .icon-wrapper {
   width: 45px;
   height: 45px;
-  background: #e6f0ff;
+  background: linear-gradient(135deg, #e6f0ff 0%, #fff0f6 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 1rem;
-  color: #2b6cb0;
+  color: #4c51bf;
 }
 
 .contact-text h4 {
@@ -157,7 +175,7 @@ textarea.contact-input {
 
 .social-links {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   margin-top: 1rem;
 }
 
@@ -173,10 +191,31 @@ textarea.contact-input {
   transition: all 0.3s ease;
 }
 
+.social-link:nth-child(1) {
+  background: #e6f0ff;
+  color: #4267B2;  /* Facebook blue */
+}
+
+.social-link:nth-child(2) {
+  background: #e8f5fd;
+  color: #1DA1F2;  /* Twitter blue */
+}
+
+.social-link:nth-child(3) {
+  background: #fce7f3;
+  color: #E1306C;  /* Instagram pink */
+}
+
+.social-link:nth-child(4) {
+  background: #e7f0f7;
+  color: #0077B5;  /* LinkedIn blue */
+}
+
 .social-link:hover {
   background: #2b6cb0;
   color: white;
   transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .map-container {
@@ -188,4 +227,19 @@ textarea.contact-input {
 .map-container iframe {
   border: none;
   display: block;
+}
+
+.contact-item:nth-child(1) .icon-wrapper {
+  background: linear-gradient(135deg, #e6fffa 0%, #ebf4ff 100%);
+  color: #319795;
+}
+
+.contact-item:nth-child(2) .icon-wrapper {
+  background: linear-gradient(135deg, #fff5f5 0%, #fef5ff 100%);
+  color: #d53f8c;
+}
+
+.contact-item:nth-child(3) .icon-wrapper {
+  background: linear-gradient(135deg, #f0fff4 0%, #ebf8ff 100%);
+  color: #38a169;
 } 
