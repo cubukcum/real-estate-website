@@ -50,6 +50,9 @@
   letter-spacing: 4px;
   text-transform: uppercase;
   text-shadow: 2px 4px 6px rgba(0,0,0,0.2);
+  animation: slideInFromLeft 1.2s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
 }
 
 .hero-subtitle {
@@ -57,7 +60,20 @@
   font-weight: 300;
   letter-spacing: 4px;
   text-shadow: 2px 4px 6px rgba(0,0,0,0.2);
-  opacity: 0.9;
+  opacity: 0;
+  animation: slideInFromLeft 1.2s ease-out 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .luxury-section {
