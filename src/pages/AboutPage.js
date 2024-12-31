@@ -14,12 +14,18 @@ const AboutPage = () => {
       <section
         className="hero-section"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${background2})`,
+          backgroundImage: `url(${background2})`,
         }}
       >
         <div className="hero-content">
           <h1>Your Company Name</h1>
           <p className="hero-subtitle">Crafting Exceptional Living Experiences</p>
+          <div className="hero-separator" style={{ 
+            width: '60px', 
+            height: '2px', 
+            background: 'var(--luxury-gold)', 
+            margin: '2rem auto' 
+          }}></div>
         </div>
       </section>
 
@@ -29,6 +35,13 @@ const AboutPage = () => {
           <Row className="align-items-center">
             <Col lg={6}>
               <div className="luxury-content">
+                <div className="section-label" style={{ 
+                  color: 'var(--luxury-gold)', 
+                  fontSize: '1.1rem', 
+                  letterSpacing: '3px',
+                  marginBottom: '1rem',
+                  textTransform: 'uppercase' 
+                }}>Our Story</div>
                 <h2>Our Legacy of Excellence</h2>
                 <p className="luxury-text">
                   For over a decade, we have redefined luxury living through our commitment
