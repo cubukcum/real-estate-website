@@ -10,8 +10,8 @@
 /* Hero section */
 .pdp-hero {
   width: 100%;
-  background: linear-gradient(135deg, #2c5282 0%, #1a365d 100%);
-  padding: 120px 20px 140px;
+  background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+  padding: 80px 20px 60px;
   position: relative;
 }
 
@@ -46,7 +46,7 @@
 /* Main content */
 .pdp-content-wrapper {
   max-width: 1200px;
-  margin: -80px auto 60px;
+  margin: 40px auto 60px;
   padding: 0 20px;
   position: relative;
 }
@@ -54,6 +54,7 @@
 /* Main image */
 .pdp-main-image-container {
   margin-bottom: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .pdp-main-image {
@@ -130,7 +131,7 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .pdp-hero {
-    padding: 100px 20px 120px;
+    padding: 60px 20px 40px;
   }
 
   .pdp-title {
@@ -153,5 +154,9 @@
 
   .pdp-details {
     padding: 25px;
+  }
+
+  .pdp-content-wrapper {
+    margin: 30px auto 40px;
   }
 }
