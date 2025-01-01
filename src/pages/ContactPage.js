@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { BsTelephone, BsEnvelope, BsPinMap } from 'react-icons/bs';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import "../styles/shared.css";
 import "../styles/ContactPage.css";
 
 const ContactPage = () => {
@@ -13,7 +14,7 @@ const ContactPage = () => {
   return (
     <Container fluid className="contact-container">
       <div className="contact-wrapper">
-        <h2 className="section-title text-center mb-5">Let's Connect</h2>
+        <h2 className="contact-section-title text-center mb-5">Let's Connect</h2>
         
         <div className="contact-grid">
           {/* Reach Out Section */}

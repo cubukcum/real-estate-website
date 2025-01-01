@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
+import "../styles/shared.css";
 import "../styles/AboutPage.css";
 import background2 from "../assets/about-page/background2.jpg";
 import background5 from "../assets/about-page/background5.jpg";

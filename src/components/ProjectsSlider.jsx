@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import ProjectCard from './ProjectCard';
 import sampleImage1 from '../assets/sample-project1.jpeg';
 
 const ProjectsSlider = () => {
@@ -11,7 +10,7 @@ const ProjectsSlider = () => {
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/projects`)
-      .then((response) => setProjects(response.data.slice(0, 3))) // Get only first 3 projects
+      .then((response) => setProjects(response.data.slice(0, 3)))
       .catch((error) => console.error("Error fetching projects:", error));
   }, []);
 
@@ -27,14 +26,16 @@ const ProjectsSlider = () => {
         {projects.map((project) => (
           <Carousel.Item key={project.id}>
             <Link to={`/projects/${project.id}`} className="text-decoration-none">
-              <ProjectCard
-                image={sampleImage1}
-                title={project.title}
-                startDate={project.startdate}
-                deliveryDate={project.deliverydate}
-                totalApartments={project.totalapartments}
-                isAvailable={project.availableforsale}
-              />
+              <div className="carousel-project">
+                <img
+                  src={project.mainImage || sampleImage1}
+                  alt={project.title}
+                  className="carousel-project-image"
+                />
+                <div className="carousel-project-overlay">
+                  <h3 className="carousel-project-title">{project.title}</h3>
+                </div>
+              </div>
             </Link>
           </Carousel.Item>
         ))}

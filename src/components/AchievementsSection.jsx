@@ -11,7 +11,7 @@ const AchievementsSection = () => {
 
   return (
     <div className="achievements-section">
-      <h2 className="section-title">Our Achievements</h2>
+      <h2 className="achievements-section-title">Our Achievements</h2>
       <div className="achievements-list">
         {stats.map((stat, index) => (
           <div key={index} className="achievement-card">
