@@ -27,11 +27,27 @@ const AddProjectForm = () => {
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/admin/add-project`,
-        { ...project, images: projectImages },
+        project,
         {
           headers: { Authorization: token }
         }
       );
+      
+      if (projectImages.length > 0) {
+        const projectId = response.data.id;
+        const uploadPromises = projectImages.map(async (image) => {
+          const formData = new FormData();
+          formData.append('image', image);
+          formData.append('project_id', projectId);
+          
+          return axios.post(`${process.env.REACT_APP_API_URL}/upload`, formData, {
+            headers: { Authorization: token }
+          });
+        });
+        
+        await Promise.all(uploadPromises);
+      }
+
       navigate("/admin/manage-projects");
     } catch (error) {
       console.error("Error adding project:", error);
