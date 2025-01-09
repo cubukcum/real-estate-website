@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Form, Button } from "react-bootstrap";
 import { BsTelephone, BsEnvelope, BsPinMap } from 'react-icons/bs';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import "../styles/shared.css";
