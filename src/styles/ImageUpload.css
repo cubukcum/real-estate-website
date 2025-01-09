@@ -1,37 +1,52 @@
 .image-upload-container {
-    margin: 1rem 0;
+    margin: 20px 0;
 }
 
-.upload-input {
-    margin-bottom: 1rem;
+.existing-images {
+    margin-bottom: 20px;
 }
 
-.image-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+.image-item {
+    margin-bottom: 20px;
 }
 
-.image-preview {
+.image-wrapper {
     position: relative;
+    display: inline-block;
 }
 
-.delete-image {
+.image-wrapper img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.delete-btn {
     position: absolute;
-    top: 5px;
-    right: 5px;
-    background: rgba(255, 0, 0, 0.7);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    top: 10px;
+    right: 10px;
+    opacity: 0.8;
 }
 
-.delete-image:hover {
-    background: rgba(255, 0, 0, 0.9);
+.upload-section {
+    text-align: center;
+    padding: 20px;
+    border: 2px dashed #ccc;
+    border-radius: 4px;
+}
+
+.file-input {
+    display: none;
+}
+
+.upload-label {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.upload-label:hover {
+    background-color: #0056b3;
 }
