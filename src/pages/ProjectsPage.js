@@ -5,6 +5,7 @@ import ProjectCard from "../components/ProjectCard";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import sampleImage1 from "../assets/sample-project1.jpeg";
+import background1 from "../assets/about-page/background1.jpg";
 
 const ProjectsPage = () => {
   const [projects, setProjects] = useState([]);
@@ -19,7 +20,12 @@ const ProjectsPage = () => {
 
   return (
     <div className="projects-container">
-      <h2 className="projects-title">Featured Projects</h2>
+      <div className="projects-banner">
+        <h1 className="banner-title">Our Projects</h1>
+        <p className="banner-description">
+          Discover our portfolio of exceptional real estate developments, where luxury meets comfort and innovation meets tradition.
+        </p>
+      </div>
       <div className="project-list">
         {projects?.map((project, index) => (
           <Link 
