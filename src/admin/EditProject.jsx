@@ -24,27 +24,29 @@ const EditProject = () => {
   const [projectImages, setProjectImages] = useState([]);
 
   useEffect(() => {
-    const fetchProject = async () => {
+    const fetchProjectAndImages = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/projects/${id}`);
+        const projectResponse = await axios.get(`${process.env.REACT_APP_API_URL}/projects/${id}`);
         const projectData = {
-          ...response.data,
-          totalconstructionarea: response.data.totalconstructionarea,
-          totalapartments: response.data.totalapartments,
-          roomtype: response.data.roomtype,
-          startdate: response.data.startdate.split('T')[0],
-          deliverydate: response.data.deliverydate.split('T')[0],
-          availableforsale: response.data.availableforsale
+          ...projectResponse.data,
+          totalconstructionarea: projectResponse.data.totalconstructionarea,
+          totalapartments: projectResponse.data.totalapartments,
+          roomtype: projectResponse.data.roomtype,
+          startdate: projectResponse.data.startdate.split('T')[0],
+          deliverydate: projectResponse.data.deliverydate.split('T')[0],
+          availableforsale: projectResponse.data.availableforsale
         };
         setProject(projectData);
-        setProjectImages(response.data.images || []);
+
+        const imagesResponse = await axios.get(`${process.env.REACT_APP_API_URL}/projects/${id}/images`);
+        setProjectImages(imagesResponse.data);
       } catch (error) {
         setError('Failed to fetch project details');
         console.error('Error:', error);
       }
     };
 
-    fetchProject();
+    fetchProjectAndImages();
   }, [id]);
 
   const handleChange = (e) => {
@@ -65,7 +67,8 @@ const EditProject = () => {
         roomType: project.roomtype,
         startDate: project.startdate,
         deliveryDate: project.deliverydate,
-        availableForSale: project.availableforsale
+        availableForSale: project.availableforsale,
+        images: projectImages
       };
       await axios.put(`${process.env.REACT_APP_API_URL}/admin/edit-project/${id}`, transformedProject);
       setSuccess('Project updated successfully');
