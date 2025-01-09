@@ -1,88 +1,91 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { Button, Image, Row, Col } from 'react-bootstrap';
+import axios from 'axios';
 import '../styles/ImageUpload.css';
 
-const ImageUpload = ({ projectId, existingImages = [], onImagesChange }) => {
-    const [uploading, setUploading] = useState(false);
-    const [images, setImages] = useState(existingImages);
+const ImageUpload = ({ projectId, existingImages, onImagesChange }) => {
+  const [uploading, setUploading] = useState(false);
 
-    const handleUpload = async (event) => {
-        const files = Array.from(event.target.files);
-        if (files.length === 0) return;
+  const handleFileUpload = async (event) => {
+    const files = Array.from(event.target.files);
+    setUploading(true);
 
-        setUploading(true);
-        try {
-            const uploadPromises = files.map(async (file) => {
-                const formData = new FormData();
-                formData.append('image', file);
-                formData.append('project_id', projectId);
+    try {
+      const formData = new FormData();
+      files.forEach(file => {
+        formData.append('images', file);
+      });
 
-                const response = await fetch(`${process.env.REACT_APP_API_URL}/upload`, {
-                    method: 'POST',
-                    body: formData,
-                });
-
-                if (!response.ok) throw new Error('Upload failed');
-                return response.json();
-            });
-
-            const newImages = await Promise.all(uploadPromises);
-            const updatedImages = [...images, ...newImages];
-            setImages(updatedImages);
-            onImagesChange(updatedImages); // Notify parent component
-        } catch (error) {
-            console.error('Upload error:', error);
-            alert('Failed to upload one or more images');
-        } finally {
-            setUploading(false);
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/admin/upload-images/${projectId}`,
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
         }
-    };
+      );
 
-    const handleDelete = async (imageId) => {
-        try {
-            await fetch(`${process.env.REACT_APP_API_URL}/upload/delete/${imageId}`, {
-                method: 'DELETE',
-            });
-            const updatedImages = images.filter(img => img.id !== imageId);
-            setImages(updatedImages);
-            onImagesChange(updatedImages);
-        } catch (error) {
-            console.error('Delete error:', error);
-            alert('Failed to delete image');
-        }
-    };
+      onImagesChange([...existingImages, ...response.data.images]);
+    } catch (error) {
+      console.error('Error uploading images:', error);
+    } finally {
+      setUploading(false);
+    }
+  };
 
-    return (
-        <div className="image-upload-container">
-            <div className="upload-input">
-                <input 
-                    type="file"
-                    accept="image/*"
-                    onChange={handleUpload}
-                    disabled={uploading}
-                    multiple
+  const handleDeleteImage = async (imageId) => {
+    try {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/projects/${projectId}/images/${imageId}`);
+      
+      onImagesChange(existingImages.filter(img => img.id !== imageId));
+    } catch (error) {
+      console.error('Error deleting image:', error);
+    }
+  };
+
+  return (
+    <div className="image-upload-container">
+      <div className="existing-images">
+        <Row>
+          {existingImages.map((image, index) => (
+            <Col key={index} xs={12} sm={6} md={4} lg={3} className="image-item">
+              <div className="image-wrapper">
+                <Image 
+                  src={image.url}
+                  alt={`Project image ${index + 1}`} 
+                  thumbnail 
                 />
-                {uploading && <p>Uploading...</p>}
-            </div>
-            
-            <div className="image-gallery">
-                {images.map(image => (
-                    <div key={image.id} className="image-preview">
-                        <img 
-                            src={image.url}
-                            alt={image.file_name}
-                            style={{ maxWidth: '200px', margin: '10px' }}
-                        />
-                        <button 
-                            onClick={() => handleDelete(image.id)}
-                            className="delete-image"
-                        >
-                            ×
-                        </button>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
+                <Button 
+                  variant="danger" 
+                  size="sm" 
+                  className="delete-btn"
+                  onClick={() => handleDeleteImage(image.id)}
+                >
+                  Delete
+                </Button>
+              </div>
+            </Col>
+          ))}
+        </Row>
+      </div>
+
+      <div className="upload-section">
+        <input
+          type="file"
+          multiple
+          onChange={handleFileUpload}
+          accept="image/*"
+          id="image-upload"
+          className="file-input"
+          disabled={uploading}
+        />
+        <label htmlFor="image-upload" className="upload-label">
+          {uploading ? 'Uploading...' : 'Choose Images'}
+        </label>
+      </div>
+    </div>
+  );
 };
 
 export default ImageUpload;
