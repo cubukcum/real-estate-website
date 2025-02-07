@@ -1,27 +1,127 @@
 .maintenance-page {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 50%, #fdbb2d 100%);
+  padding: 2rem;
 }
 
 .maintenance-content {
   text-align: center;
-  padding: 2rem;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   max-width: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.maintenance-icon {
+  font-size: 4rem;
+  color: #b21f1f;
+  margin-bottom: 1.5rem;
+  animation: wrench 2s ease infinite;
 }
 
 .maintenance-content h1 {
-  color: #2c3e50;
+  color: #1a2a6c;
+  font-size: 2.5rem;
   margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.maintenance-message {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.progress-bar {
+  height: 6px;
+  background: #eee;
+  border-radius: 3px;
+  margin: 2rem 0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #1a2a6c, #b21f1f);
+  width: 70%;
+  animation: progress 2s ease infinite;
 }
 
 .estimated-time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #666;
+  margin: 1.5rem 0;
+}
+
+.clock-icon {
+  color: #b21f1f;
+  animation: pulse 2s ease infinite;
+}
+
+.maintenance-features {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
   margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid #eee;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.feature-dot {
+  width: 8px;
+  height: 8px;
+  background: #b21f1f;
+  border-radius: 50%;
+}
+
+.feature p {
+  color: #666;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+@keyframes wrench {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes progress {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+@media (max-width: 768px) {
+  .maintenance-content {
+    padding: 2rem;
+    margin: 1rem;
+  }
+
+  .maintenance-features {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .feature {
+    justify-content: center;
+  }
 } 
