@@ -1,6 +1,6 @@
 {
   "companyInfo": {
-    "name": "Company dasd",
+    "name": "Company Name",
     "email": "info@constructionco.com",
     "phone": "+1 234 567 890",
     "address": "123 Main St, Anytown, Country",
@@ -84,7 +84,9 @@
         "startDate": "Start Date",
         "deliveryDate": "Delivery Date",
         "apartments": "apartments",
-        "isAvailable": "Available"
+        "isAvailable": "Available",
+        "completedText": "Completed",
+        "inProgressText": "In Progress"
       }
     },
     "projectDetailPage": {
