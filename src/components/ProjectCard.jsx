@@ -23,7 +23,7 @@ function ProjectCard({
   isAvailable,
 }) {
   const isCompleted = new Date(deliveryDate) < new Date();
-  const statusText = isCompleted ? "Completed" : "In Progress";
+  const statusText = isCompleted ? config.siteContent.projectsPage.projectCard.completedText : config.siteContent.projectsPage.projectCard.inProgressText;
   const statusClass = isCompleted ? "status-completed" : "status-in-progress";
 
   const formatDate = (dateString) => {
