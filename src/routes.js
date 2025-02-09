@@ -6,7 +6,6 @@ import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 import AdminLogin from "./admin/AdminLogin";
 import AdminDashboard from "./admin/AdminDashboard";
-// import DashboardOverview from "./admin/DashboardOverview";
 import ManageProjects from "./admin/ManageProjects";
 import AddProjectForm from "./admin/AddProjectForm";
 import EditProjectForm from "./admin/EditProject";
