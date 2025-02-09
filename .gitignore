@@ -8,6 +8,7 @@
 # testing
 /coverage
 /src/database
+src/pages/MaintenancePage.js
 
 # production
 /build
