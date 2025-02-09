@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import configAdmin from "../config.admin.json"
 
 const ProjectManagement = () => {
   const [projects, setProjects] = useState([]);
@@ -33,9 +34,9 @@ const ProjectManagement = () => {
 
   return (
     <div>
-      <h1>Manage Projects</h1>
+      <h1>{configAdmin.projectManagement.manageProjectTitle}</h1>
       <div>
-        <h2>Add New Project</h2>
+        <h2>{configAdmin.projectManagement.manageAddNewProjectTitle}</h2>
         <input
           type="text"
           placeholder="Name"
@@ -58,19 +59,19 @@ const ProjectManagement = () => {
             setNewProject({ ...newProject, status: e.target.value })
           }
         >
-          <option value="">Select Status</option>
-          <option value="Ongoing">Ongoing</option>
-          <option value="Completed">Completed</option>
+          <option value="">{configAdmin.projectManagement.selectStatusTitle}</option>
+          <option value="Ongoing">{configAdmin.projectManagement.selectStatusOngoing}</option>
+          <option value="Completed">{configAdmin.projectManagement.selectStatusCompleted}</option>
         </select>
-        <button onClick={handleAddProject}>Add Project</button>
+        <button onClick={handleAddProject}>{configAdmin.projectManagement.manageAddProjectButton}</button>
       </div>
-      <h2>Existing Projects</h2>
+      <h2>{configAdmin.projectManagement.manageExistingProjectsTitle}</h2>
       <ul>
         {projects.map((project) => (
           <li key={project.id}>
             {project.name} - {project.location}
             <button onClick={() => handleDeleteProject(project.id)}>
-              Delete
+              {configAdmin.projectManagement.manageDeleteProjectButton}
             </button>
           </li>
         ))}

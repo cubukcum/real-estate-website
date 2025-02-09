@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "../styles/ProjectDetailPage.css";
 import background1 from "../assets/about-page/background1.jpg";
 import axios from "axios";
-
+import config from "../config.json";
 const ProjectDetailPage = () => {
   const { id } = useParams();
   const [project, setProject] = useState(null);
@@ -69,22 +69,22 @@ const ProjectDetailPage = () => {
                 </a>
               </p>
               <p>
-                <strong>Total Construction Area:</strong>{" "}
+                <strong>{ config.siteContent.projectDetailPage.projectTotalConstructionArea }:</strong>{" "}
                 {project.totalconstructionarea}
               </p>
               <p>
-                <strong>Total Apartments:</strong> {project.totalapartments}
+                <strong>{ config.siteContent.projectDetailPage.projectTotalApartments }:</strong> {project.totalapartments}
               </p>
               <p>
-                <strong>Room Types:</strong> {project.roomtype}
+                <strong>{ config.siteContent.projectDetailPage.projectRoomTypes }:</strong> {project.roomtype}
               </p>
             </div>
             <div>
               <p>
-                <strong>Start Date:</strong> {formatDate(project.startdate)}
+                <strong>{ config.siteContent.projectDetailPage.projectStartDate }:</strong> {formatDate(project.startdate)}
               </p>
               <p>
-                <strong>Delivery Date:</strong> {formatDate(project.deliverydate)}
+                <strong>{ config.siteContent.projectDetailPage.projectCompletionDate }:</strong> {formatDate(project.deliverydate)}
               </p>
               <p>
                 <strong>Description:</strong>
@@ -95,7 +95,7 @@ const ProjectDetailPage = () => {
         </div>
 
         <div className="pdp-gallery-section">
-          <h2 className="pdp-gallery-title">Project Gallery</h2>
+          <h2 className="pdp-gallery-title">{ config.siteContent.projectDetailPage.projectGalleryTitle }</h2>
           <div className="pdp-gallery">
             {images.slice(1).map((image, index) => (
               <div key={image.id} className="pdp-gallery-item">

@@ -4,6 +4,7 @@ import "../styles/shared.css";
 import "../styles/AboutPage.css";
 import background2 from "../assets/about-page/background2.jpg";
 import background5 from "../assets/about-page/background5.jpg";
+import config from "../config.json";
 
 const AboutPage = () => {
   return (
@@ -16,8 +17,8 @@ const AboutPage = () => {
         }}
       >
         <div className="hero-content">
-          <h1>Your Company Name</h1>
-          <p className="hero-subtitle">Crafting Exceptional Living Experiences</p>
+          <h1>{config.companyInfo.name}</h1>
+          <p className="hero-subtitle">{config.siteContent.aboutPage.heroTitle}</p>
         </div>
       </section>
 
@@ -33,16 +34,13 @@ const AboutPage = () => {
                   letterSpacing: '3px',
                   marginBottom: '1rem',
                   textTransform: 'uppercase' 
-                }}>Our Story</div>
-                <h2>Our Legacy of Excellence</h2>
+                }}>{ config.siteContent.aboutPage.sectionLabel1 }</div>
+                <h2>{config.siteContent.aboutPage.title}</h2>
                 <p className="luxury-text">
-                  For over a decade, we have redefined luxury living through our commitment
-                  to architectural excellence and unparalleled attention to detail. Each
-                  residence we create is a masterpiece, designed to elevate the art of living.
+                  {config.siteContent.aboutPage.description}
                 </p>
                 <p className="luxury-text">
-                  Our signature developments seamlessly blend innovative design with timeless
-                  elegance, creating spaces that inspire and endure.
+                  {config.siteContent.aboutPage.additionalDescription}
                 </p>
               </div>
             </Col>
@@ -54,16 +52,15 @@ const AboutPage = () => {
 
         {/* Core Values Section */}
         <section className="luxury-section">
-          <h2 className="text-center mb-5">Our Guiding Principles</h2>
+          <h2 className="text-center mb-5">{ config.siteContent.aboutPage.sectionLabel2 }</h2>
           <Row>
             <Col lg={4}>
               <Card className="luxury-card">
                 <Card.Body>
                   <i className="fas fa-gem fa-2x mb-4"></i>
-                  <Card.Title>Uncompromising Quality</Card.Title>
+                  <Card.Title>{ config.siteContent.aboutPage.title2 }</Card.Title>
                   <Card.Text>
-                    We pursue excellence in every detail, ensuring each residence
-                    meets the highest standards of luxury and craftsmanship.
+                    { config.siteContent.aboutPage.description2 }
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -72,10 +69,9 @@ const AboutPage = () => {
               <Card className="luxury-card">
                 <Card.Body>
                   <i className="fas fa-crown fa-2x mb-4"></i>
-                  <Card.Title>Bespoke Design</Card.Title>
+                  <Card.Title>{ config.siteContent.aboutPage.title3 }</Card.Title>
                   <Card.Text>
-                    Each project is uniquely crafted to reflect the distinctive
-                    vision and lifestyle of our discerning clientele.
+                    { config.siteContent.aboutPage.description3 }
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -84,10 +80,9 @@ const AboutPage = () => {
               <Card className="luxury-card">
                 <Card.Body>
                   <i className="fas fa-leaf fa-2x mb-4"></i>
-                  <Card.Title>Sustainable Luxury</Card.Title>
+                  <Card.Title>{ config.siteContent.aboutPage.title4 }</Card.Title>
                   <Card.Text>
-                    We seamlessly integrate environmental consciousness with
-                    luxurious living spaces.
+                    { config.siteContent.aboutPage.description4 }
                   </Card.Text>
                 </Card.Body>
               </Card>

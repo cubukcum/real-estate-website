@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import '../styles/AddProjectForm.css';
 import ImageUpload from '../components/ImageUpload';
-
+import configAdmin from "../config.admin.json"
 const AddProjectForm = () => {
   const navigate = useNavigate();
   const [project, setProject] = useState({
@@ -71,7 +71,7 @@ const AddProjectForm = () => {
           <Row>
             <Col md={6}>
               <Form.Group className="mb-3">
-                <Form.Label>Project Title</Form.Label>
+                <Form.Label>{configAdmin.addProjectForm.projectAddNewTitle}</Form.Label>
                 <Form.Control
                   type="text"
                   name="title"
@@ -82,7 +82,7 @@ const AddProjectForm = () => {
               </Form.Group>
 
               <Form.Group className="mb-3">
-                <Form.Label>Address</Form.Label>
+                <Form.Label>{configAdmin.addProjectForm.projectAddressTitle}</Form.Label>
                 <Form.Control
                   type="text"
                   name="address"
@@ -93,7 +93,7 @@ const AddProjectForm = () => {
               </Form.Group>
 
               <Form.Group className="mb-3">
-                <Form.Label>Total Construction Area (sqm)</Form.Label>
+                <Form.Label>{configAdmin.addProjectForm.projectTotalAreaTitle}</Form.Label>
                 <Form.Control
                   type="number"
                   name="totalConstructionArea"
@@ -104,7 +104,7 @@ const AddProjectForm = () => {
               </Form.Group>
 
               <Form.Group className="mb-3">
-                <Form.Label>Total Apartments</Form.Label>
+                <Form.Label>{configAdmin.addProjectForm.projectTotalApartmentsTitle}</Form.Label>
                 <Form.Control
                   type="number"
                   name="totalApartments"
@@ -117,7 +117,7 @@ const AddProjectForm = () => {
 
             <Col md={6}>
               <Form.Group className="mb-3">
-                <Form.Label>Room Types</Form.Label>
+                <Form.Label>{configAdmin.addProjectForm.projectRoomTypesTitle}</Form.Label>
                 <Form.Control
                   type="text"
                   name="roomType"
@@ -129,7 +129,7 @@ const AddProjectForm = () => {
               </Form.Group>
 
               <Form.Group className="mb-3">
-                <Form.Label>Start Date</Form.Label>
+                <Form.Label>{configAdmin.addProjectForm.projectStartTitle}</Form.Label>
                 <Form.Control
                   type="date"
                   name="startDate"
@@ -140,7 +140,7 @@ const AddProjectForm = () => {
               </Form.Group>
 
               <Form.Group className="mb-3">
-                <Form.Label>Delivery Date</Form.Label>
+                <Form.Label>{configAdmin.addProjectForm.projectDeliveryTitle}</Form.Label>
                 <Form.Control
                   type="date"
                   name="deliveryDate"
@@ -153,7 +153,7 @@ const AddProjectForm = () => {
           </Row>
 
           <Form.Group className="mb-3">
-            <Form.Label>Description</Form.Label>
+            <Form.Label>{configAdmin.addProjectForm.projectDescripton}</Form.Label>
             <Form.Control
               as="textarea"
               rows={4}
@@ -175,7 +175,7 @@ const AddProjectForm = () => {
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Project Images</Form.Label>
+            <Form.Label>{configAdmin.addProjectForm.projectImagesTitle}</Form.Label>
             <ImageUpload 
               projectId={null}
               onImagesChange={setProjectImages}
@@ -184,10 +184,10 @@ const AddProjectForm = () => {
 
           <div className="button-group d-flex gap-2">
             <Button variant="primary" type="submit">
-              Add Project
+            {configAdmin.addProjectForm.projecAddNewButton}
             </Button>
             <Button variant="secondary" onClick={() => navigate("/admin/manage-projects")}>
-              Cancel
+            {configAdmin.addProjectForm.projecCancelButton}
             </Button>
           </div>
         </Form>

@@ -6,6 +6,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import sampleImage1 from "../assets/sample-project1.jpeg";
 import background1 from "../assets/about-page/background1.jpg";
+import config from "../config.json";
 
 const ProjectsPage = () => {
   const [projects, setProjects] = useState([]);
@@ -21,9 +22,9 @@ const ProjectsPage = () => {
   return (
     <div className="projects-container">
       <div className="projects-banner">
-        <h1 className="banner-title">Our Projects</h1>
+        <h1 className="banner-title">{ config.siteContent.projectsPage.bannerTitle }</h1>
         <p className="banner-description">
-          Discover our portfolio of exceptional real estate developments, where luxury meets comfort and innovation meets tradition.
+          { config.siteContent.projectsPage.bannerDescription }
         </p>
       </div>
       <div className="project-list">

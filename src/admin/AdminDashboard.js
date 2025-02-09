@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Card, Row, Col, Container } from "react-bootstrap";
 import { FaUsers, FaProjectDiagram, FaChartLine } from "react-icons/fa";
 import "../styles/AdminDashboard.css";
-
+import configAdmin from "../config.admin.json";
 const AdminDashboard = () => {
   const [stats, setStats] = useState({
     totalUsers: 0,
@@ -32,19 +32,19 @@ const AdminDashboard = () => {
 
   const dashboardCards = [
     {
-      title: "Total Users",
+      title: configAdmin.dashboard.sections.overview.cards[0],
       value: stats.totalUsers,
       icon: <FaUsers />,
       color: "#4e73df",
     },
     {
-      title: "Total Projects",
+      title: configAdmin.dashboard.sections.overview.cards[1],
       value: stats.totalProjects,
       icon: <FaProjectDiagram />,
       color: "#1cc88a",
     },
     {
-      title: "Active Projects",
+      title: configAdmin.dashboard.sections.overview.cards[2],
       value: stats.activeProjects,
       icon: <FaChartLine />,
       color: "#36b9cc",
@@ -53,7 +53,7 @@ const AdminDashboard = () => {
 
   return (
     <Container fluid className="admin-dashboard">
-      <h2 className="dashboard-title">Admin Dashboard</h2>
+      <h2 className="dashboard-title">{ configAdmin.dashboard.title }</h2>
       <Row className="mt-4">
         {dashboardCards.map((card, index) => (
           <Col key={index} md={4} sm={6} className="mb-4">
@@ -78,19 +78,19 @@ const AdminDashboard = () => {
         <Col md={6} className="mb-4">
           <Card className="quick-actions-card">
             <Card.Body>
-              <h5>Quick Actions</h5>
+              <h5>{ configAdmin.dashboard.sections.quickActions.title }</h5>
               <div className="quick-actions-grid">
                 <button onClick={() => navigate("/admin/users")}>
-                  Manage Users
+                  { configAdmin.dashboard.sections.quickActions.actions[0] }
                 </button>
                 <button onClick={() => navigate("/admin/settings")}>
-                  Settings
+                  { configAdmin.dashboard.sections.quickActions.actions[1] }
                 </button>
                 <button onClick={() => navigate("/admin/reports")}>
-                  View Reports
+                  { configAdmin.dashboard.sections.quickActions.actions[2] }
                 </button>
                 <button onClick={() => navigate("/admin/logs")}>
-                  System Logs
+                  { configAdmin.dashboard.sections.quickActions.actions[3] }
                 </button>
               </div>
             </Card.Body>
@@ -100,18 +100,18 @@ const AdminDashboard = () => {
         <Col md={6} className="mb-4">
           <Card className="system-status-card">
             <Card.Body>
-              <h5>System Status</h5>
+              <h5>{configAdmin.dashboard.sections.systemStatus.title}</h5>
               {/* Add system status information here */}
               <div className="status-item">
-                <span>Server Status:</span>
+                <span>{configAdmin.dashboard.sections.systemStatus.items[0]}:</span>
                 <span className="status-badge success">Online</span>
               </div>
               <div className="status-item">
-                <span>Last Backup:</span>
+                <span>{configAdmin.dashboard.sections.systemStatus.items[1]}:</span>
                 <span>2 hours ago</span>
               </div>
               <div className="status-item">
-                <span>System Load:</span>
+                <span>{configAdmin.dashboard.sections.systemStatus.items[2]}:</span>
                 <span>Normal</span>
               </div>
             </Card.Body>

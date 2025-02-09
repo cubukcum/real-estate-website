@@ -1,36 +1,38 @@
 import React from "react";
 import "../styles/FeaturesSection.css";
 import { FaHome, FaMapMarkerAlt, FaHandshake, FaLeaf } from "react-icons/fa";
-
+import config from "../config.json";
 const FeaturesSection = () => {
   const features = [
     {
       icon: <FaHome />,
-      title: "High-Quality Construction",
+      title: config.siteContent.homePage.featuresSection.feature1,
       description:
-        "We build homes to last with the finest materials and modern designs.",
+        config.siteContent.homePage.featuresSection.feature1Description,
     },
     {
       icon: <FaMapMarkerAlt />,
-      title: "Prime Locations",
+      title: config.siteContent.homePage.featuresSection.feature2,
       description:
-        "Our projects are strategically located for convenience and accessibility.",
+        config.siteContent.homePage.featuresSection.feature2Description,
     },
     {
       icon: <FaHandshake />,
-      title: "Transparent Dealings",
-      description: "We ensure honesty and clarity in all our transactions.",
+      title: config.siteContent.homePage.featuresSection.feature3,
+      description:
+        config.siteContent.homePage.featuresSection.feature3Description,
     },
     {
       icon: <FaLeaf />,
-      title: "Eco-Friendly Designs",
-      description: "Our designs are sustainable and environmentally conscious.",
+      title: config.siteContent.homePage.featuresSection.feature4,
+      description:
+        config.siteContent.homePage.featuresSection.feature4Description,
     },
   ];
 
   return (
     <div className="features-section">
-      <h2 className="features-section-title">Why Choose Us</h2>
+      <h2 className="features-section-title">{config.siteContent.homePage.featuresSection.whyChooseUsTitle}</h2>
       <div className="features-list">
         {features.map((feature, index) => (
           <div key={index} className="feature-card">

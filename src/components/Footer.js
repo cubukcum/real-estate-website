@@ -1,27 +1,27 @@
 import React from "react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import "../styles/Footer.css";
-
+import config from "../config.json";
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
         {/* Company Info */}
         <div className="footer-section">
-          <h2>Company Name</h2>
-          <p>Building the future, one project at a time.</p>
-          <p>© 2024 Company Name. All rights reserved.</p>
+          <h2>{config.siteContent.footer.companyName}</h2>
+          <p>{config.siteContent.footer.companyDescription}</p>
+          <p>© 2025 {config.siteContent.footer.companyName}  {config.siteContent.footer.allRightsReserved}</p>
         </div>
 
         {/* Quick Links */}
         <div className="footer-section">
-          <h3>Quick Links</h3>
+          <h3>{config.siteContent.footer.quickLinks[0]}</h3>
           <ul>
             <li>
-              <a href="/">Home</a>
+              <a href="/">{config.siteContent.footer.quickLinks[1]}</a>
             </li>
             <li>
-              <a href="/about">About</a>
+              <a href="/about">{config.siteContent.footer.quickLinks[2]}</a>
             </li>
             <li>
               <a href="/projects">Projects</a>
@@ -34,15 +34,15 @@ export default function Footer() {
 
         {/* Contact Info */}
         <div className="footer-section">
-          <h3>Contact Us</h3>
-          <p>Email: info@constructionco.com</p>
-          <p>Phone: +1 234 567 890</p>
-          <p>Address: 123 Main St, Anytown, Country</p>
+          <h3>{config.siteContent.footer.contactUs.titles[0]}</h3>
+          <p>{config.siteContent.footer.contactUs.titles[1]}: {config.companyInfo.email}</p>
+          <p>{config.siteContent.footer.contactUs.titles[2]}: {config.companyInfo.phone}</p>
+          <p>{config.siteContent.footer.contactUs.titles[3]}: {config.companyInfo.address}</p>
         </div>
 
         {/* Social Media */}
         <div className="footer-section">
-          <h3>Follow Us</h3>
+          <h3>{config.siteContent.footer.followusTitle}</h3>
           <div className="social-icons">
             <a
               href="https://facebook.com"

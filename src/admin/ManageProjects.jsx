@@ -6,6 +6,7 @@ import { BsPlusLg } from 'react-icons/bs';
 import { FiEdit } from 'react-icons/fi';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import "../styles/ManageProjects.css";
+import configAdmin from "../config.admin.json";
 
 const ManageProjects = () => {
   const [projects, setProjects] = useState([]);
@@ -39,23 +40,23 @@ const ManageProjects = () => {
   return (
     <Container className="manage-projects-container">
       <div className="manage-projects-header">
-        <h2>Manage Projects</h2>
+        <h2>{configAdmin.manageProjects.manageProjectsTitle}</h2>
         <Button 
           variant="success" 
           onClick={() => navigate("/admin/add-project")}
         >
-          <BsPlusLg /> Add New Project
+          <BsPlusLg /> {configAdmin.manageProjects.manageAddNewProjectTitle}
         </Button>
       </div>
       
       <Table className="projects-table" striped bordered hover>
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Address</th>
-            <th>Total Apartments</th>
-            <th>Status</th>
-            <th>Actions</th>
+            <th>{configAdmin.manageProjects.tableColumns[0]}</th>
+            <th>{configAdmin.manageProjects.tableColumns[1]}</th>
+            <th>{configAdmin.manageProjects.tableColumns[2]}</th>
+            <th>{configAdmin.manageProjects.tableColumns[3]}</th>
+            <th>{configAdmin.manageProjects.tableColumns[4]}</th>
           </tr>
         </thead>
         <tbody>

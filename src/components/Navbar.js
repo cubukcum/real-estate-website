@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import "../styles/Navbar.css";
-
+import config from "../config.json";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isNavExpanded, setIsNavExpanded] = useState(false);
@@ -38,7 +38,7 @@ export default function Navbar() {
   return (
     <nav className={`nav ${isScrolled ? "scrolled" : ""}`}>
       <Link to="/" className="site-title">
-        Site Name
+        {config.companyInfo.name}
       </Link>
       <button 
         className="hamburger"
@@ -49,10 +49,10 @@ export default function Navbar() {
         <span></span>
       </button>
       <ul className={isNavExpanded ? "expanded" : ""}>
-        <CustomLink to="/" onClick={handleLinkClick}>Home</CustomLink>
-        <CustomLink to="/about" onClick={handleLinkClick}>About</CustomLink>
-        <CustomLink to="/projects" onClick={handleLinkClick}>Projects</CustomLink>
-        <CustomLink to="/contact" onClick={handleLinkClick}>Contact</CustomLink>
+        <CustomLink to="/" onClick={handleLinkClick}>{config.siteContent.navbar.home}</CustomLink>
+        <CustomLink to="/about" onClick={handleLinkClick}>{config.siteContent.navbar.about}</CustomLink>
+        <CustomLink to="/projects" onClick={handleLinkClick}>{config.siteContent.navbar.projects}</CustomLink>
+        <CustomLink to="/contact" onClick={handleLinkClick}>{config.siteContent.navbar.contact}</CustomLink>
       </ul>
     </nav>
   );

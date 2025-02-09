@@ -13,7 +13,7 @@
 import React from "react";
 import "../styles/ProjectCard.css";
 import { FaCalendarAlt, FaBuilding } from "react-icons/fa";
-
+import config from "../config.json";
 function ProjectCard({
   image,
   title,
@@ -36,7 +36,7 @@ function ProjectCard({
       <div className="project-image">
         <img src={image} alt={title} />
         {isAvailable && (
-          <span className="availability-indicator">Available</span>
+          <span className="availability-indicator">{config.siteContent.projectsPage.projectCard.isAvailable}</span>
         )}
         <span className={`project-status ${statusClass}`}>{statusText}</span>
       </div>
@@ -46,18 +46,18 @@ function ProjectCard({
           <p className="date-info">
             <FaCalendarAlt />
             <span>
-              <strong>Start:</strong> {formatDate(startDate)}
+              <strong>{config.siteContent.projectsPage.projectCard.startDate}:</strong> {formatDate(startDate)}
             </span>
           </p>
           <p className="date-info">
             <FaCalendarAlt />
             <span>
-              <strong>Finish:</strong> {formatDate(deliveryDate)}
+              <strong>{config.siteContent.projectsPage.projectCard.deliveryDate}:</strong> {formatDate(deliveryDate)}
             </span>
           </p>
           <p className="total-apartments">
             <FaBuilding />
-            <span>{totalApartments} Apartments</span>
+            <span>{totalApartments} {config.siteContent.projectsPage.projectCard.apartments}</span>
           </p>
         </div>
       </div>
