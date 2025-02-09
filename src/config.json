@@ -1,0 +1,152 @@
+{
+  "companyInfo": {
+    "name": "Company Name",
+    "email": "info@constructionco.com",
+    "phone": "+1 234 567 890",
+    "address": "123 Main St, Anytown, Country",
+    "description": "Building the future, one project at a time."
+  },
+  "siteContent": {
+    "aboutPage": {
+      "sectionLabel1": "Our Story",
+      "heroTitle": "Crafting Exceptional Living Experiences",
+      "title": "Our Legacy of Excellence",
+      "description": "For over a decade, we have redefined luxury living through our commitment to architectural excellence and unparalleled attention to detail. Each residence we create is a masterpiece, designed to elevate the art of living.",
+      "additionalDescription": "Our signature developments seamlessly blend innovative design with timeless elegance, creating spaces that inspire and endure.",
+      "sectionLabel2": "Our Guiding Principles",
+      "title2": "Uncompromising Quality",
+      "description2": "We pursue excellence in every detail, ensuring each residence meets the highest standards of luxury and craftsmanship.",
+      "title3": "Bespoke Design",
+      "description3": "Each project is uniquely crafted to reflect the distinctive vision and lifestyle of our discerning clientele.",
+      "title4": "Sustainable Luxury",
+      "description4": "We seamlessly integrate environmental consciousness with luxurious living spaces."
+    },
+    "homePage": {
+      "bannerTitle": "Building Dreams Into Reality",
+      "bannerSubtitle": "Discover our portfolio of exceptional real estate developments, where luxury meets comfort and innovation meets tradition.",
+      "achievementsSection":{
+        "title": "Our Achievements",
+        "label1": "Completed Projects",
+        "label2": "Apartments Delivered",
+        "label3": "Families Housed",
+        "label4": "Awards Won"
+      },
+      "featuresSection":{
+        "title": "Our Features",
+        "feature1": "High-Quality Construction",
+        "feature1Description": "We build homes to last with the finest materials and modern designs.",
+        "feature2": "Prime Locations",
+        "feature2Description": "Our projects are strategically located for convenience and accessibility.",
+        "feature3": "Transparent Dealings",
+        "feature3Description": "We ensure honesty and clarity in all our transactions.",
+        "feature4": "Eco-Friendly Designs",
+        "feature4Description": "Our designs are sustainable and environmentally conscious.",
+        "whyChooseUsTitle": "Why Choose Us"
+      },
+      "topBanner":{
+        "title": "Welcome to ",
+        "subtitle": "Building Dreams, Brick by Brick. Discover Your Perfect Home.",
+        "buttonText": "Explore Projects"
+      }
+    },
+    "navbar":{
+      "home":"Home",
+      "about":"About",
+      "projects":"Projects",
+      "contact":"Contact"
+    },
+    "footer":{
+      "companyName": "Company Name",
+      "companyDescription": "Building the future, one project at a time.",
+      "allRightsReserved": "All rights reserved.",
+      "quickLinks":[
+        "Quick Links",
+        "Home",
+        "About",
+        "Projects",
+        "Contact"
+      ],
+      "contactUs":{
+        "titles":[
+          "Contact Us",
+          "Email",
+          "Phone",
+          "Address"
+        ]
+      },
+      "followusTitle":"Follow Us"
+
+    },
+    "projectsPage": {
+      "bannerTitle": "Our Projects",
+      "bannerDescription": "Discover our portfolio of exceptional real estate developments, where luxury meets comfort and innovation meets tradition.",
+      "projectCard":{
+        "title": "Project Title",
+        "startDate": "Start Date",
+        "deliveryDate": "Delivery Date",
+        "apartments": "apartments",
+        "isAvailable": "Available"
+      }
+    },
+    "projectDetailPage": {
+      "title": "Project Details",
+      "subtitle": "Discover the unique features and specifications of our projects.",
+      "projectAddress": "Address",
+      "projectTotalConstructionArea": "Total Construction Area",
+      "projectTotalApartments": "Total Apartments",
+      "projectRoomTypes": "Room Types",
+      "projectStartDate": "Start Date",
+      "projectCompletionDate": "Completion Date",
+      "projectGalleryTitle": "Gallery"
+    },
+    "contactPage": {
+      "title": "Let's Connect",
+      "subtitle": "Reach Out to Us",
+      "formTitle": "Send Us a Message",
+      "mapTitle": "Find Us Here",
+      "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.9283446497575!2d-122.08424998469276!3d37.42199997982425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb5c1f3087eeb%3A0x78d92e2b7fd3ba07!2sGoogleplex!5e0!3m2!1sen!2sus!4v1691415232066!5m2!1sen!2sus",
+      "phoneTitle": "Phone",
+      "emailTitle": "Email",
+      "addressTitle": "Address",
+      "phone": "+1 234 567 890",
+      "email": "info@constructionco.com",
+      "address": "123 Main St, Anytown, Country",
+      "connectTitle": "Connect With Us",
+      "facebookUrl": "https://www.facebook.com",
+      "twitterUrl": "https://www.twitter.com",
+      "instagramUrl": "https://www.instagram.com",
+      "linkedinUrl": "https://www.linkedin.com",
+      "namePlaceholder": "Name",
+      "emailPlaceholder": "Email",
+      "messagePlaceholder": "Your message",
+      "buttonText": "Send Message"
+    },
+    "maintenancePage": {
+      "title": "We're Making Things Better!",
+      "message": "Our team is working hard to bring you an improved experience. We apologize for any inconvenience and appreciate your patience.",
+      "features": [
+        "System Upgrades",
+        "Performance Improvements",
+        "Enhanced Security"
+      ]
+    },
+    "values": {
+      "quality": {
+        "title": "Uncompromising Quality",
+        "description": "We pursue excellence in every detail, ensuring each residence meets the highest standards of luxury and craftsmanship."
+      },
+      "design": {
+        "title": "Bespoke Design",
+        "description": "Each project is uniquely crafted to reflect the distinctive vision and lifestyle of our discerning clientele."
+      },
+      "sustainability": {
+        "title": "Sustainable Luxury",
+        "description": "We seamlessly integrate environmental consciousness with luxurious living spaces."
+      }
+    }
+  },
+  "meta": {
+    "title": "Real Estate Construction",
+    "description": "Web site created using create-react-app"
+  }
+} 
