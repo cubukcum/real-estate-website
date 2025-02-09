@@ -1,0 +1,123 @@
+{
+  "dashboard": {
+    "title": "Admin Dashboard",
+    "sections": {
+      "overview": {
+        "title": "Dashboard Overview",
+        "cards": [
+          "Total Projects",
+          "Apartments for Sale",
+          "Visitors Today"
+        ]
+      },
+      "quickActions": {
+        "title": "Quick Actions",
+        "actions": [
+          "Manage Users",
+          "Settings",
+          "View Reports",
+          "System Logs"
+        ]
+      },
+      "systemStatus": {
+        "title": "System Status",
+        "items": [
+          "Server Status",
+          "Last Backup",
+          "System Load"
+        ]
+      }
+    }
+  },
+  "adminLogin":{
+    "emailTitle":"Email Address",
+    "emailPlaceholder":"Enter email",
+    "passwordTitle":"Password",
+    "passwordPlaceholder":"Enter password",
+    "submitButton":"Login"
+  },
+  "addProjectForm":{
+    "projectAddNewTitle":"Add New Project",
+    "projectTitle":"Project Title",
+    "projectAddressTitle":"Address",
+    "projectTotalAreaTitle":"Total Construction Area (sqm)",
+    "projectTotalApartmentsTitle":"Total Apartments",
+    "projectRoomTypesTitle":"Room Types",
+    "projectStartTitle":"Start Date",
+    "projectDeliveryTitle":"Delivery Date",
+    "projectDescripton":"Room Types",
+    "projectImagesTitle":"Project Images",
+    "projectAddNewButton":"Add Project",
+    "projectCancelButton":"Cancel"
+  },
+  "editProject":{
+    "editProjectTitle":"Edit Project",
+    "editprojectAddressTitle":"Address",
+    "editprojecTotalAreaTitle":"Total Construction Area (sqm)",
+    "editprojecTotalApartmentsTitle":"Total Apartments",
+    "editprojecRoomTypesTitle":"Room Types",
+    "editprojecStartTitle":"Start Date",
+    "editprojecDeliveryTitle":"Delivery Date",
+    "editprojecDescripton":"Room Types",
+    "editprojecImagesTitle":"Project Images",
+    "editProjectButton":"Update Project"
+  },
+  "projectManagement":{
+    "manageProjectTitle":"Manage Projects",
+    "manageAddNewProjectTitle":"Add New Project",
+    "selectStatusTitle":"Select Status",
+    "selectStatusOngoing":"Ongoing",
+    "selectStatusCompleted":"Completed",
+    "manageAddProjectButton":"Add Project",
+    "manageExistingProjectsTitle":"Existing Projects",
+    "manageDeleteProjectButton":"Delete"
+  },
+  "manageProjects":{
+    "manageProjectsTitle":"Manage Projects",
+    "manageAddNewProjectTitle":"Add New Project",
+    "tableColumns": [
+      "Title",
+      "Address",
+      "Total Apartments",
+      "Status",
+      "Actions"
+    ]
+  },
+  "projects": {
+    "tableColumns": [
+      "Title",
+      "Address",
+      "Total Apartments",
+      "Status",
+      "Actions"
+    ],
+    "statusLabels": {
+      "available": "Available",
+      "notAvailable": "Not Available"
+    }
+  },
+  "forms": {
+    "project": {
+      "labels": {
+        "title": "Project Title",
+        "address": "Address",
+        "totalApartments": "Total Apartments",
+        "roomTypes": "Room Types",
+        "startDate": "Start Date",
+        "deliveryDate": "Delivery Date",
+        "description": "Description"
+      },
+      "placeholders": {
+        "roomTypes": "e.g., 1+1, 2+1, 3+1",
+        "description": "Enter project description"
+      }
+    }
+  },
+  "api": {
+    "endpoints": {
+      "stats": "/admin/stats",
+      "projects": "/admin/projects",
+      "users": "/admin/users"
+    }
+  }
+} 
