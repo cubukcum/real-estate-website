@@ -24,10 +24,10 @@ export default function Footer() {
               <a href="/about">{config.siteContent.footer.quickLinks[2]}</a>
             </li>
             <li>
-              <a href="/projects">Projects</a>
+              <a href="/projects"> {config.siteContent.footer.quickLinks[3]} </a>
             </li>
             <li>
-              <a href="/contact">Contact</a>
+              <a href="/contact"> {config.siteContent.footer.quickLinks[4]} </a>
             </li>
           </ul>
         </div>
