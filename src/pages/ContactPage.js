@@ -28,7 +28,7 @@ const ContactPage = () => {
                 </div>
                 <div className="contact-text">
                   <h4>{ config.siteContent.contactPage.phoneTitle }</h4>
-                  <p>{ config.siteContent.contactPage.phone }</p>
+                  <p>{ config.companyInfo.phone }</p>
                 </div>
               </div>
               <div className="contact-item">
@@ -37,7 +37,7 @@ const ContactPage = () => {
                 </div>
                 <div className="contact-text">
                   <h4>{ config.siteContent.contactPage.emailTitle }</h4>
-                  <p>{ config.siteContent.contactPage.email }</p>
+                  <p>{ config.companyInfo.email }</p>
                 </div>
               </div>
               <div className="contact-item">
@@ -46,7 +46,7 @@ const ContactPage = () => {
                 </div>
                 <div className="contact-text">
                   <h4>{ config.siteContent.contactPage.addressTitle }</h4>
-                  <p>{ config.siteContent.contactPage.address }</p>
+                  <p>{ config.companyInfo.address }</p>
                 </div>
               </div>
             </div>

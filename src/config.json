@@ -56,7 +56,6 @@
       "contact":"Contact"
     },
     "footer":{
-      "companyName": "Company Name",
       "companyDescription": "Building the future, one project at a time.",
       "allRightsReserved": "All rights reserved.",
       "quickLinks":[
@@ -108,9 +107,6 @@
       "phoneTitle": "Phone",
       "emailTitle": "Email",
       "addressTitle": "Address",
-      "phone": "+1 234 567 890",
-      "email": "info@constructionco.com",
-      "address": "123 Main St, Anytown, Country",
       "connectTitle": "Connect With Us",
       "facebookUrl": "https://www.facebook.com",
       "twitterUrl": "https://www.twitter.com",

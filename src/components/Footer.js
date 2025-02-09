@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="footer-content">
         {/* Company Info */}
         <div className="footer-section">
-          <h2>{config.siteContent.footer.companyName}</h2>
+          <h2>{config.companyInfo.name}</h2>
           <p>{config.siteContent.footer.companyDescription}</p>
           <p>© 2025 {config.siteContent.footer.companyName}  {config.siteContent.footer.allRightsReserved}</p>
         </div>
