@@ -23,20 +23,24 @@ function ProjectCard({
   isAvailable,
 }) {
   const isCompleted = new Date(deliveryDate) < new Date();
-  const statusText = isCompleted ? config.siteContent.projectsPage.projectCard.completedText : config.siteContent.projectsPage.projectCard.inProgressText;
+  const statusText = isCompleted
+    ? config.siteContent.projectsPage.projectCard.completedText
+    : config.siteContent.projectsPage.projectCard.inProgressText;
   const statusClass = isCompleted ? "status-completed" : "status-in-progress";
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+    return date.toLocaleDateString("en-US", { year: "numeric", month: "long" });
   };
 
   return (
-    <div className={`project-card ${isCompleted ? 'completed' : 'upcoming'}`}>
+    <div className={`project-card ${isCompleted ? "completed" : "upcoming"}`}>
       <div className="project-image">
         <img src={image} alt={title} />
         {isAvailable && (
-          <span className="availability-indicator">{config.siteContent.projectsPage.projectCard.isAvailable}</span>
+          <span className="availability-indicator">
+            {config.siteContent.projectsPage.projectCard.isAvailable}
+          </span>
         )}
         <span className={`project-status ${statusClass}`}>{statusText}</span>
       </div>
@@ -46,18 +50,27 @@ function ProjectCard({
           <p className="date-info">
             <FaCalendarAlt />
             <span>
-              <strong>{config.siteContent.projectsPage.projectCard.startDate}:</strong> {formatDate(startDate)}
+              <strong>
+                {config.siteContent.projectsPage.projectCard.startDate}:
+              </strong>{" "}
+              {formatDate(startDate)}
             </span>
           </p>
           <p className="date-info">
             <FaCalendarAlt />
             <span>
-              <strong>{config.siteContent.projectsPage.projectCard.deliveryDate}:</strong> {formatDate(deliveryDate)}
+              <strong>
+                {config.siteContent.projectsPage.projectCard.deliveryDate}:
+              </strong>{" "}
+              {formatDate(deliveryDate)}
             </span>
           </p>
           <p className="total-apartments">
             <FaBuilding />
-            <span>{totalApartments} {config.siteContent.projectsPage.projectCard.apartments}</span>
+            <span>
+              {totalApartments}{" "}
+              {config.siteContent.projectsPage.projectCard.apartments}
+            </span>
           </p>
         </div>
       </div>
