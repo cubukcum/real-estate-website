@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { Button, Image, Row, Col } from 'react-bootstrap';
-import axios from 'axios';
-import '../styles/ImageUpload.css';
+import React, { useState } from "react";
+import { Button, Image, Row, Col } from "react-bootstrap";
+import axios from "axios";
+import "../styles/ImageUpload.css";
 
-const ImageUpload = ({ projectId, existingImages, onImagesChange }) => {
+const ImageUpload = ({ projectId, existingImages = [], onImagesChange }) => {
   const [uploading, setUploading] = useState(false);
 
   const handleFileUpload = async (event) => {
@@ -11,24 +11,26 @@ const ImageUpload = ({ projectId, existingImages, onImagesChange }) => {
     setUploading(true);
 
     try {
+      // Create FormData and append the file and project_id
       const formData = new FormData();
-      files.forEach(file => {
-        formData.append('images', file);
-      });
+      // Note: The backend expects 'image' as the field name, not 'images'
+      formData.append("image", files[0]); // Handle one file at a time
+      formData.append("project_id", projectId);
 
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/admin/upload-images/${projectId}`,
+        `${process.env.REACT_APP_API_URL}/upload`,
         formData,
         {
           headers: {
-            'Content-Type': 'multipart/form-data',
+            "Content-Type": "multipart/form-data",
           },
         }
       );
 
-      onImagesChange([...existingImages, ...response.data.images]);
+      // The response will contain a single image object
+      onImagesChange([...existingImages, response.data]);
     } catch (error) {
-      console.error('Error uploading images:', error);
+      console.error("Error uploading image:", error);
     } finally {
       setUploading(false);
     }
@@ -36,11 +38,13 @@ const ImageUpload = ({ projectId, existingImages, onImagesChange }) => {
 
   const handleDeleteImage = async (imageId) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_API_URL}/projects/${projectId}/images/${imageId}`);
-      
-      onImagesChange(existingImages.filter(img => img.id !== imageId));
+      await axios.delete(
+        `${process.env.REACT_APP_API_URL}/projects/${projectId}/images/${imageId}`
+      );
+
+      onImagesChange(existingImages.filter((img) => img.id !== imageId));
     } catch (error) {
-      console.error('Error deleting image:', error);
+      console.error("Error deleting image:", error);
     }
   };
 
@@ -49,16 +53,23 @@ const ImageUpload = ({ projectId, existingImages, onImagesChange }) => {
       <div className="existing-images">
         <Row>
           {existingImages.map((image, index) => (
-            <Col key={index} xs={12} sm={6} md={4} lg={3} className="image-item">
+            <Col
+              key={index}
+              xs={12}
+              sm={6}
+              md={4}
+              lg={3}
+              className="image-item"
+            >
               <div className="image-wrapper">
-                <Image 
+                <Image
                   src={image.url}
-                  alt={`Project image ${index + 1}`} 
-                  thumbnail 
+                  alt={`Project image ${index + 1}`}
+                  thumbnail
                 />
-                <Button 
-                  variant="danger" 
-                  size="sm" 
+                <Button
+                  variant="danger"
+                  size="sm"
                   className="delete-btn"
                   onClick={() => handleDeleteImage(image.id)}
                 >
@@ -81,7 +92,7 @@ const ImageUpload = ({ projectId, existingImages, onImagesChange }) => {
           disabled={uploading}
         />
         <label htmlFor="image-upload" className="upload-label">
-          {uploading ? 'Uploading...' : 'Choose Images'}
+          {uploading ? "Uploading..." : "Choose Images"}
         </label>
       </div>
     </div>
