@@ -4,77 +4,70 @@
     "sections": {
       "overview": {
         "title": "Dashboard Overview",
-        "cards": [
-          "Total Projects",
-          "Apartments for Sale",
-          "Visitors Today"
-        ]
+        "cards": ["Total Projects", "Apartments for Sale", "Visitors Today"]
       },
       "quickActions": {
         "title": "Quick Actions",
-        "actions": [
-          "Manage Users",
-          "Settings",
-          "View Reports",
-          "System Logs"
-        ]
+        "actions": ["Manage Users", "Settings", "View Reports", "System Logs"]
       },
       "systemStatus": {
         "title": "System Status",
-        "items": [
-          "Server Status",
-          "Last Backup",
-          "System Load"
-        ]
+        "items": ["Server Status", "Last Backup", "System Load"]
       }
     }
   },
-  "adminLogin":{
-    "emailTitle":"Email Address",
-    "emailPlaceholder":"Enter email",
-    "passwordTitle":"Password",
-    "passwordPlaceholder":"Enter password",
-    "submitButton":"Login"
+  "adminLogin": {
+    "emailTitle": "Email Address",
+    "emailPlaceholder": "Enter email",
+    "passwordTitle": "Password",
+    "passwordPlaceholder": "Enter password",
+    "submitButton": "Login"
   },
-  "addProjectForm":{
-    "projectAddNewTitle":"Add New Project",
-    "projectTitle":"Project Title",
-    "projectAddressTitle":"Address",
-    "projectTotalAreaTitle":"Total Construction Area (sqm)",
-    "projectTotalApartmentsTitle":"Total Apartments",
-    "projectRoomTypesTitle":"Room Types",
-    "projectStartTitle":"Start Date",
-    "projectDeliveryTitle":"Delivery Date",
-    "projectDescripton":"Room Types",
-    "projectImagesTitle":"Project Images",
-    "projectAddNewButton":"Add Project",
-    "projectCancelButton":"Cancel"
+  "adminNavbar": {
+    "dashboard": "Dashboard",
+    "manageProjects": "My Projects",
+    "logout": "Logout",
+    "companyName": "Company Name"
   },
-  "editProject":{
-    "editProjectTitle":"Edit Project",
-    "editprojectAddressTitle":"Address",
-    "editprojecTotalAreaTitle":"Total Construction Area (sqm)",
-    "editprojecTotalApartmentsTitle":"Total Apartments",
-    "editprojecRoomTypesTitle":"Room Types",
-    "editprojecStartTitle":"Start Date",
-    "editprojecDeliveryTitle":"Delivery Date",
-    "editprojecDescripton":"Room Types",
-    "editprojecImagesTitle":"Project Images",
-    "editProjectButton":"Update Project"
+  "addProjectForm": {
+    "projectAddNewTitle": "Add New Project",
+    "projectTitle": "Project Title",
+    "projectAddressTitle": "Address",
+    "projectTotalAreaTitle": "Total Construction Area (sqm)",
+    "projectTotalApartmentsTitle": "Total Apartments",
+    "projectRoomTypesTitle": "Room Types",
+    "projectStartTitle": "Start Date",
+    "projectDeliveryTitle": "Delivery Date",
+    "projectDescripton": "Room Types",
+    "projectImagesTitle": "Project Images",
+    "projectAddNewButton": "Add Project",
+    "projectCancelButton": "Cancel"
   },
-  "projectManagement":{
-    "manageProjectTitle":"Manage Projects",
-    "manageAddNewProjectTitle":"Add New Project",
-    "selectStatusTitle":"Select Status",
-    "selectStatusOngoing":"Ongoing",
-    "selectStatusCompleted":"Completed",
-    "manageAddProjectButton":"Add Project",
-    "manageExistingProjectsTitle":"Existing Projects",
-    "manageDeleteProjectButton":"Delete"
+  "editProject": {
+    "editProjectTitle": "Edit Project",
+    "editprojectAddressTitle": "Address",
+    "editprojecTotalAreaTitle": "Total Construction Area (sqm)",
+    "editprojecTotalApartmentsTitle": "Total Apartments",
+    "editprojecRoomTypesTitle": "Room Types",
+    "editprojecStartTitle": "Start Date",
+    "editprojecDeliveryTitle": "Delivery Date",
+    "editprojecDescripton": "Room Types",
+    "editprojecImagesTitle": "Project Images",
+    "editProjectButton": "Update Project"
   },
-  "manageProjects":{
-    "manageProjectsTitle":"Manage Projects",
-    "manageAddNewProjectTitle":"Add New Project",
+  "projectManagement": {
+    "manageProjectTitle": "Manage Projects",
+    "manageAddNewProjectTitle": "Add New Project",
+    "selectStatusTitle": "Select Status",
+    "selectStatusOngoing": "Ongoing",
+    "selectStatusCompleted": "Completed",
+    "manageAddProjectButton": "Add Project",
+    "manageExistingProjectsTitle": "Existing Projects",
+    "manageDeleteProjectButton": "Delete"
+  },
+  "manageProjects": {
+    "manageProjectsTitle": "Manage Projects",
+    "manageAddNewProjectTitle": "Add New Project",
     "tableColumns": [
       "Title",
       "Address",
@@ -120,4 +113,4 @@
       "users": "/admin/users"
     }
   }
-} 
+}

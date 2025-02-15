@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useMatch, useResolvedPath, useNavigate } from "react-router-dom";
-import "../styles/AdminNavbar.css"
-
+import "../styles/AdminNavbar.css";
+import config from "../config.admin.json";
 export default function AdminNavbar() {
   const navigate = useNavigate();
 
@@ -13,13 +13,19 @@ export default function AdminNavbar() {
   return (
     <nav className="admin-nav">
       <Link to="/" className="admin-site-title">
-        Site Name
+        {config.adminNavbar.companyName}
       </Link>
       <ul>
-        <CustomLink to="/admin/dashboard">Dashboard</CustomLink>
-        <CustomLink to="/admin/manage-projects">My Projects</CustomLink>
+        <CustomLink to="/admin/dashboard">
+          {config.adminNavbar.dashboard}
+        </CustomLink>
+        <CustomLink to="/admin/manage-projects">
+          {config.adminNavbar.manageProjects}
+        </CustomLink>
         <li>
-          <button className="admin-nav-button" onClick={handleLogout}>Logout</button>
+          <button className="admin-nav-button" onClick={handleLogout}>
+            {config.adminNavbar.logout}
+          </button>
         </li>
       </ul>
     </nav>
