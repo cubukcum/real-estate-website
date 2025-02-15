@@ -16,12 +16,12 @@ import AdminLayout from "./layouts/AdminLayout";
 import MaintenancePage from "./pages/MaintenancePage";
 
 const MAINTENANCE_MODE = true; // You can toggle this to true/false
-const BYPASS_KEY = 'bypass_maintenance'; // This will be used in the URL
+const BYPASS_KEY = "bypass_maintenance"; // This will be used in the URL
 
 function App() {
   // Check if there's a bypass parameter in the URL
   const urlParams = new URLSearchParams(window.location.search);
-  const bypassMaintenance = urlParams.get(BYPASS_KEY) === 'true';
+  const bypassMaintenance = urlParams.get(BYPASS_KEY) === "true";
 
   if (MAINTENANCE_MODE && !bypassMaintenance) {
     return <MaintenancePage />;

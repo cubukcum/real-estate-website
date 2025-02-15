@@ -1,6 +1,6 @@
-import React from 'react';
-import { Container } from 'react-bootstrap';
-import { FaTools, FaClock } from 'react-icons/fa';
+import React from "react";
+import { Container } from "react-bootstrap";
+import { FaTools, FaClock } from "react-icons/fa";
 import "../styles/MaintenancePage.css";
 
 const MaintenancePage = () => {
@@ -12,8 +12,8 @@ const MaintenancePage = () => {
         </div>
         <h1>We're Making Things Better!</h1>
         <p className="maintenance-message">
-          Our team is working hard to bring you an improved experience. 
-          We apologize for any inconvenience and appreciate your patience.
+          Our team is working hard to bring you an improved experience. We
+          apologize for any inconvenience and appreciate your patience.
         </p>
         <div className="progress-bar">
           <div className="progress-fill"></div>
@@ -41,4 +41,4 @@ const MaintenancePage = () => {
   );
 };
 
-export default MaintenancePage; 
+export default MaintenancePage;

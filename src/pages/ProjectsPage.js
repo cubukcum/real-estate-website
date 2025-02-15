@@ -18,19 +18,20 @@ const ProjectsPage = () => {
       .catch((error) => console.error("Error fetching projects:", error));
   }, []);
 
-
   return (
     <div className="projects-container">
       <div className="projects-banner">
-        <h1 className="banner-title">{ config.siteContent.projectsPage.bannerTitle }</h1>
+        <h1 className="banner-title">
+          {config.siteContent.projectsPage.bannerTitle}
+        </h1>
         <p className="banner-description">
-          { config.siteContent.projectsPage.bannerDescription }
+          {config.siteContent.projectsPage.bannerDescription}
         </p>
       </div>
       <div className="project-list">
         {projects?.map((project, index) => (
-          <Link 
-            key={project.id} 
+          <Link
+            key={project.id}
             to={`/projects/${project.id}`}
             className="project-link"
           >

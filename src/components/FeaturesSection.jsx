@@ -32,7 +32,9 @@ const FeaturesSection = () => {
 
   return (
     <div className="features-section">
-      <h2 className="features-section-title">{config.siteContent.homePage.featuresSection.whyChooseUsTitle}</h2>
+      <h2 className="features-section-title">
+        {config.siteContent.homePage.featuresSection.whyChooseUsTitle}
+      </h2>
       <div className="features-list">
         {features.map((feature, index) => (
           <div key={index} className="feature-card">

@@ -10,7 +10,10 @@ export default function Footer() {
         <div className="footer-section">
           <h2>{config.companyInfo.name}</h2>
           <p>{config.siteContent.footer.companyDescription}</p>
-          <p>© 2025 {config.siteContent.footer.companyName}  {config.siteContent.footer.allRightsReserved}</p>
+          <p>
+            © 2025 {config.siteContent.footer.companyName}{" "}
+            {config.siteContent.footer.allRightsReserved}
+          </p>
         </div>
 
         {/* Quick Links */}
@@ -24,7 +27,10 @@ export default function Footer() {
               <a href="/about">{config.siteContent.footer.quickLinks[2]}</a>
             </li>
             <li>
-              <a href="/projects"> {config.siteContent.footer.quickLinks[3]} </a>
+              <a href="/projects">
+                {" "}
+                {config.siteContent.footer.quickLinks[3]}{" "}
+              </a>
             </li>
             <li>
               <a href="/contact"> {config.siteContent.footer.quickLinks[4]} </a>
@@ -35,9 +41,18 @@ export default function Footer() {
         {/* Contact Info */}
         <div className="footer-section">
           <h3>{config.siteContent.footer.contactUs.titles[0]}</h3>
-          <p>{config.siteContent.footer.contactUs.titles[1]}: {config.companyInfo.email}</p>
-          <p>{config.siteContent.footer.contactUs.titles[2]}: {config.companyInfo.phone}</p>
-          <p>{config.siteContent.footer.contactUs.titles[3]}: {config.companyInfo.address}</p>
+          <p>
+            {config.siteContent.footer.contactUs.titles[1]}:{" "}
+            {config.companyInfo.email}
+          </p>
+          <p>
+            {config.siteContent.footer.contactUs.titles[2]}:{" "}
+            {config.companyInfo.phone}
+          </p>
+          <p>
+            {config.siteContent.footer.contactUs.titles[3]}:{" "}
+            {config.companyInfo.address}
+          </p>
         </div>
 
         {/* Social Media */}

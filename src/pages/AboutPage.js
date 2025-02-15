@@ -18,7 +18,9 @@ const AboutPage = () => {
       >
         <div className="hero-content">
           <h1>{config.companyInfo.name}</h1>
-          <p className="hero-subtitle">{config.siteContent.aboutPage.heroTitle}</p>
+          <p className="hero-subtitle">
+            {config.siteContent.aboutPage.heroTitle}
+          </p>
         </div>
       </section>
 
@@ -28,13 +30,18 @@ const AboutPage = () => {
           <Row className="align-items-center">
             <Col lg={6}>
               <div className="luxury-content">
-                <div className="section-label" style={{ 
-                  color: 'var(--luxury-gold)', 
-                  fontSize: '1.1rem', 
-                  letterSpacing: '3px',
-                  marginBottom: '1rem',
-                  textTransform: 'uppercase' 
-                }}>{ config.siteContent.aboutPage.sectionLabel1 }</div>
+                <div
+                  className="section-label"
+                  style={{
+                    color: "var(--luxury-gold)",
+                    fontSize: "1.1rem",
+                    letterSpacing: "3px",
+                    marginBottom: "1rem",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {config.siteContent.aboutPage.sectionLabel1}
+                </div>
                 <h2>{config.siteContent.aboutPage.title}</h2>
                 <p className="luxury-text">
                   {config.siteContent.aboutPage.description}
@@ -45,22 +52,28 @@ const AboutPage = () => {
               </div>
             </Col>
             <Col lg={6}>
-              <img src={background5} alt="Luxury Interior" className="luxury-image" />
+              <img
+                src={background5}
+                alt="Luxury Interior"
+                className="luxury-image"
+              />
             </Col>
           </Row>
         </section>
 
         {/* Core Values Section */}
         <section className="luxury-section">
-          <h2 className="text-center mb-5">{ config.siteContent.aboutPage.sectionLabel2 }</h2>
+          <h2 className="text-center mb-5">
+            {config.siteContent.aboutPage.sectionLabel2}
+          </h2>
           <Row>
             <Col lg={4}>
               <Card className="luxury-card">
                 <Card.Body>
                   <i className="fas fa-gem fa-2x mb-4"></i>
-                  <Card.Title>{ config.siteContent.aboutPage.title2 }</Card.Title>
+                  <Card.Title>{config.siteContent.aboutPage.title2}</Card.Title>
                   <Card.Text>
-                    { config.siteContent.aboutPage.description2 }
+                    {config.siteContent.aboutPage.description2}
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -69,9 +82,9 @@ const AboutPage = () => {
               <Card className="luxury-card">
                 <Card.Body>
                   <i className="fas fa-crown fa-2x mb-4"></i>
-                  <Card.Title>{ config.siteContent.aboutPage.title3 }</Card.Title>
+                  <Card.Title>{config.siteContent.aboutPage.title3}</Card.Title>
                   <Card.Text>
-                    { config.siteContent.aboutPage.description3 }
+                    {config.siteContent.aboutPage.description3}
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -80,9 +93,9 @@ const AboutPage = () => {
               <Card className="luxury-card">
                 <Card.Body>
                   <i className="fas fa-leaf fa-2x mb-4"></i>
-                  <Card.Title>{ config.siteContent.aboutPage.title4 }</Card.Title>
+                  <Card.Title>{config.siteContent.aboutPage.title4}</Card.Title>
                   <Card.Text>
-                    { config.siteContent.aboutPage.description4 }
+                    {config.siteContent.aboutPage.description4}
                   </Card.Text>
                 </Card.Body>
               </Card>

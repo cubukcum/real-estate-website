@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Form, Button } from "react-bootstrap";
-import { BsTelephone, BsEnvelope, BsPinMap } from 'react-icons/bs';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { BsTelephone, BsEnvelope, BsPinMap } from "react-icons/bs";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import "../styles/shared.css";
 import "../styles/ContactPage.css";
 import config from "../config.json";
@@ -15,20 +15,24 @@ const ContactPage = () => {
   return (
     <Container fluid className="contact-container">
       <div className="contact-wrapper">
-        <h2 className="contact-section-title text-center mb-5">{ config.siteContent.contactPage.title }</h2>
-        
+        <h2 className="contact-section-title text-center mb-5">
+          {config.siteContent.contactPage.title}
+        </h2>
+
         <div className="contact-grid">
           {/* Reach Out Section */}
           <div className="contact-content reach-out-section">
-            <h3 className="contact-subtitle">{ config.siteContent.contactPage.subtitle }</h3>
+            <h3 className="contact-subtitle">
+              {config.siteContent.contactPage.subtitle}
+            </h3>
             <div className="contact-details">
               <div className="contact-item">
                 <div className="icon-wrapper">
                   <BsTelephone />
                 </div>
                 <div className="contact-text">
-                  <h4>{ config.siteContent.contactPage.phoneTitle }</h4>
-                  <p>{ config.companyInfo.phone }</p>
+                  <h4>{config.siteContent.contactPage.phoneTitle}</h4>
+                  <p>{config.companyInfo.phone}</p>
                 </div>
               </div>
               <div className="contact-item">
@@ -36,8 +40,8 @@ const ContactPage = () => {
                   <BsEnvelope />
                 </div>
                 <div className="contact-text">
-                  <h4>{ config.siteContent.contactPage.emailTitle }</h4>
-                  <p>{ config.companyInfo.email }</p>
+                  <h4>{config.siteContent.contactPage.emailTitle}</h4>
+                  <p>{config.companyInfo.email}</p>
                 </div>
               </div>
               <div className="contact-item">
@@ -45,25 +49,37 @@ const ContactPage = () => {
                   <BsPinMap />
                 </div>
                 <div className="contact-text">
-                  <h4>{ config.siteContent.contactPage.addressTitle }</h4>
-                  <p>{ config.companyInfo.address }</p>
+                  <h4>{config.siteContent.contactPage.addressTitle}</h4>
+                  <p>{config.companyInfo.address}</p>
                 </div>
               </div>
             </div>
             <div className="social-media-icons">
-              <h4>{ config.siteContent.contactPage.connectTitle }</h4>
+              <h4>{config.siteContent.contactPage.connectTitle}</h4>
               <div className="social-links">
                 {[
-                  { Icon: FaFacebook, url: config.siteContent.contactPage.facebookUrl },
-                  { Icon: FaTwitter, url: config.siteContent.contactPage.twitterUrl },
-                  { Icon: FaInstagram, url: config.siteContent.contactPage.instagramUrl },
-                  { Icon: FaLinkedin, url: config.siteContent.contactPage.linkedinUrl }
+                  {
+                    Icon: FaFacebook,
+                    url: config.siteContent.contactPage.facebookUrl,
+                  },
+                  {
+                    Icon: FaTwitter,
+                    url: config.siteContent.contactPage.twitterUrl,
+                  },
+                  {
+                    Icon: FaInstagram,
+                    url: config.siteContent.contactPage.instagramUrl,
+                  },
+                  {
+                    Icon: FaLinkedin,
+                    url: config.siteContent.contactPage.linkedinUrl,
+                  },
                 ].map(({ Icon, url }) => (
-                  <a 
+                  <a
                     key={url}
-                    href={url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="social-link"
                   >
                     <Icon />
@@ -75,12 +91,14 @@ const ContactPage = () => {
 
           {/* Contact Form Section */}
           <div className="contact-card message-section">
-            <h3 className="contact-subtitle">{ config.siteContent.contactPage.formTitle }</h3>
+            <h3 className="contact-subtitle">
+              {config.siteContent.contactPage.formTitle}
+            </h3>
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3">
                 <Form.Control
                   type="text"
-                  placeholder={ config.siteContent.contactPage.namePlaceholder }
+                  placeholder={config.siteContent.contactPage.namePlaceholder}
                   required
                   className="contact-input"
                 />
@@ -89,7 +107,7 @@ const ContactPage = () => {
               <Form.Group className="mb-3">
                 <Form.Control
                   type="email"
-                  placeholder={ config.siteContent.contactPage.emailPlaceholder }
+                  placeholder={config.siteContent.contactPage.emailPlaceholder}
                   required
                   className="contact-input"
                 />
@@ -99,7 +117,9 @@ const ContactPage = () => {
                 <Form.Control
                   as="textarea"
                   rows={5}
-                  placeholder={ config.siteContent.contactPage.messagePlaceholder }
+                  placeholder={
+                    config.siteContent.contactPage.messagePlaceholder
+                  }
                   required
                   className="contact-input"
                 />
@@ -107,7 +127,7 @@ const ContactPage = () => {
 
               <div className="text-center">
                 <Button type="submit" className="contact-button">
-                  { config.siteContent.contactPage.buttonText }
+                  {config.siteContent.contactPage.buttonText}
                 </Button>
               </div>
             </Form>
@@ -115,10 +135,12 @@ const ContactPage = () => {
 
           {/* Map Section */}
           <div className="map-section">
-            <h3 className="contact-subtitle">{ config.siteContent.contactPage.mapTitle }</h3>
+            <h3 className="contact-subtitle">
+              {config.siteContent.contactPage.mapTitle}
+            </h3>
             <div className="map-container">
               <iframe
-                src={ config.siteContent.contactPage.mapUrl }
+                src={config.siteContent.contactPage.mapUrl}
                 width="100%"
                 height="450"
                 allowFullScreen

@@ -16,7 +16,7 @@ export default function Navbar() {
     };
 
     const handleClickOutside = (event) => {
-      const nav = document.querySelector('.nav');
+      const nav = document.querySelector(".nav");
       if (nav && !nav.contains(event.target)) {
         setIsNavExpanded(false);
       }
@@ -40,7 +40,7 @@ export default function Navbar() {
       <Link to="/" className="site-title">
         {config.companyInfo.name}
       </Link>
-      <button 
+      <button
         className="hamburger"
         onClick={() => setIsNavExpanded(!isNavExpanded)}
       >
@@ -49,10 +49,18 @@ export default function Navbar() {
         <span></span>
       </button>
       <ul className={isNavExpanded ? "expanded" : ""}>
-        <CustomLink to="/" onClick={handleLinkClick}>{config.siteContent.navbar.home}</CustomLink>
-        <CustomLink to="/about" onClick={handleLinkClick}>{config.siteContent.navbar.about}</CustomLink>
-        <CustomLink to="/projects" onClick={handleLinkClick}>{config.siteContent.navbar.projects}</CustomLink>
-        <CustomLink to="/contact" onClick={handleLinkClick}>{config.siteContent.navbar.contact}</CustomLink>
+        <CustomLink to="/" onClick={handleLinkClick}>
+          {config.siteContent.navbar.home}
+        </CustomLink>
+        <CustomLink to="/about" onClick={handleLinkClick}>
+          {config.siteContent.navbar.about}
+        </CustomLink>
+        <CustomLink to="/projects" onClick={handleLinkClick}>
+          {config.siteContent.navbar.projects}
+        </CustomLink>
+        <CustomLink to="/contact" onClick={handleLinkClick}>
+          {config.siteContent.navbar.contact}
+        </CustomLink>
       </ul>
     </nav>
   );

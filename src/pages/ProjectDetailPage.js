@@ -11,7 +11,7 @@ const ProjectDetailPage = () => {
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+    return date.toLocaleDateString("en-US", { year: "numeric", month: "long" });
   };
 
   useEffect(() => {
@@ -38,8 +38,13 @@ const ProjectDetailPage = () => {
         <div className="pdp-title-wrapper">
           <h1 className="pdp-title">{project.title}</h1>
           <div className="pdp-hero-meta">
-            <span><i className="fas fa-map-marker-alt"></i> {project.address}</span>
-            <span><i className="fas fa-calendar"></i> {formatDate(project.deliverydate)}</span>
+            <span>
+              <i className="fas fa-map-marker-alt"></i> {project.address}
+            </span>
+            <span>
+              <i className="fas fa-calendar"></i>{" "}
+              {formatDate(project.deliverydate)}
+            </span>
           </div>
         </div>
       </div>
@@ -69,22 +74,40 @@ const ProjectDetailPage = () => {
                 </a>
               </p>
               <p>
-                <strong>{ config.siteContent.projectDetailPage.projectTotalConstructionArea }:</strong>{" "}
+                <strong>
+                  {
+                    config.siteContent.projectDetailPage
+                      .projectTotalConstructionArea
+                  }
+                  :
+                </strong>{" "}
                 {project.totalconstructionarea}
               </p>
               <p>
-                <strong>{ config.siteContent.projectDetailPage.projectTotalApartments }:</strong> {project.totalapartments}
+                <strong>
+                  {config.siteContent.projectDetailPage.projectTotalApartments}:
+                </strong>{" "}
+                {project.totalapartments}
               </p>
               <p>
-                <strong>{ config.siteContent.projectDetailPage.projectRoomTypes }:</strong> {project.roomtype}
+                <strong>
+                  {config.siteContent.projectDetailPage.projectRoomTypes}:
+                </strong>{" "}
+                {project.roomtype}
               </p>
             </div>
             <div>
               <p>
-                <strong>{ config.siteContent.projectDetailPage.projectStartDate }:</strong> {formatDate(project.startdate)}
+                <strong>
+                  {config.siteContent.projectDetailPage.projectStartDate}:
+                </strong>{" "}
+                {formatDate(project.startdate)}
               </p>
               <p>
-                <strong>{ config.siteContent.projectDetailPage.projectCompletionDate }:</strong> {formatDate(project.deliverydate)}
+                <strong>
+                  {config.siteContent.projectDetailPage.projectCompletionDate}:
+                </strong>{" "}
+                {formatDate(project.deliverydate)}
               </p>
               <p>
                 <strong>Description:</strong>
@@ -95,7 +118,9 @@ const ProjectDetailPage = () => {
         </div>
 
         <div className="pdp-gallery-section">
-          <h2 className="pdp-gallery-title">{ config.siteContent.projectDetailPage.projectGalleryTitle }</h2>
+          <h2 className="pdp-gallery-title">
+            {config.siteContent.projectDetailPage.projectGalleryTitle}
+          </h2>
           <div className="pdp-gallery">
             {images.slice(1).map((image, index) => (
               <div key={image.id} className="pdp-gallery-item">
