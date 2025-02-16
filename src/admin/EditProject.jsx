@@ -1,48 +1,53 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Form, Button, Alert } from 'react-bootstrap';
-import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import "../styles/EditProject.css"
-import ImageUpload from '../components/ImageUpload';
+import React, { useState, useEffect } from "react";
+import { Container, Form, Button, Alert } from "react-bootstrap";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
+import "../styles/EditProject.css";
+import ImageUpload from "../components/ImageUpload";
+import MapPicker from "../components/MapPicker";
 
 const EditProject = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [project, setProject] = useState({
-    title: '',
-    address: '',
-    totalconstructionarea: '',
-    totalapartments: '',
-    roomtype: '',
-    startdate: '',
-    deliverydate: '',
+    title: "",
+    address: "",
+    totalconstructionarea: "",
+    totalapartments: "",
+    roomtype: "",
+    startdate: "",
+    deliverydate: "",
     availableforsale: false,
-    description: ''
+    description: "",
   });
   const [projectImages, setProjectImages] = useState([]);
 
   useEffect(() => {
     const fetchProjectAndImages = async () => {
       try {
-        const projectResponse = await axios.get(`${process.env.REACT_APP_API_URL}/projects/${id}`);
+        const projectResponse = await axios.get(
+          `${process.env.REACT_APP_API_URL}/projects/${id}`
+        );
         const projectData = {
           ...projectResponse.data,
           totalconstructionarea: projectResponse.data.totalconstructionarea,
           totalapartments: projectResponse.data.totalapartments,
           roomtype: projectResponse.data.roomtype,
-          startdate: projectResponse.data.startdate.split('T')[0],
-          deliverydate: projectResponse.data.deliverydate.split('T')[0],
-          availableforsale: projectResponse.data.availableforsale
+          startdate: projectResponse.data.startdate.split("T")[0],
+          deliverydate: projectResponse.data.deliverydate.split("T")[0],
+          availableforsale: projectResponse.data.availableforsale,
         };
         setProject(projectData);
 
-        const imagesResponse = await axios.get(`${process.env.REACT_APP_API_URL}/projects/${id}/images`);
+        const imagesResponse = await axios.get(
+          `${process.env.REACT_APP_API_URL}/projects/${id}/images`
+        );
         setProjectImages(imagesResponse.data);
       } catch (error) {
-        setError('Failed to fetch project details');
-        console.error('Error:', error);
+        setError("Failed to fetch project details");
+        console.error("Error:", error);
       }
     };
 
@@ -51,9 +56,9 @@ const EditProject = () => {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setProject(prev => ({
+    setProject((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
@@ -68,25 +73,42 @@ const EditProject = () => {
         startDate: project.startdate,
         deliveryDate: project.deliverydate,
         availableForSale: project.availableforsale,
-        images: projectImages
+        images: projectImages,
       };
-      await axios.put(`${process.env.REACT_APP_API_URL}/admin/edit-project/${id}`, transformedProject);
-      setSuccess('Project updated successfully');
+      await axios.put(
+        `${process.env.REACT_APP_API_URL}/admin/edit-project/${id}`,
+        transformedProject
+      );
+      setSuccess("Project updated successfully");
       setTimeout(() => {
-        navigate('/admin/manage-projects');
+        navigate("/admin/manage-projects");
       }, 2000);
     } catch (error) {
-      setError(error.response?.data?.error || 'Failed to update project');
-      console.error('Error:', error);
+      setError(error.response?.data?.error || "Failed to update project");
+      console.error("Error:", error);
     }
   };
 
   return (
     <Container className="edit-project-container">
       <h2 className="edit-project-title">Edit Project</h2>
-      {error && <Alert variant="danger" className="edit-project-alert edit-project-error">{error}</Alert>}
-      {success && <Alert variant="success" className="edit-project-alert edit-project-success">{success}</Alert>}
-      
+      {error && (
+        <Alert
+          variant="danger"
+          className="edit-project-alert edit-project-error"
+        >
+          {error}
+        </Alert>
+      )}
+      {success && (
+        <Alert
+          variant="success"
+          className="edit-project-alert edit-project-success"
+        >
+          {success}
+        </Alert>
+      )}
+
       <Form onSubmit={handleSubmit}>
         <Form.Group className="edit-project-form-group">
           <Form.Label className="edit-project-label">Title</Form.Label>
@@ -102,18 +124,17 @@ const EditProject = () => {
 
         <Form.Group className="edit-project-form-group">
           <Form.Label className="edit-project-label">Address</Form.Label>
-          <Form.Control
-            className="edit-project-input"
-            type="text"
-            name="address"
-            value={project.address}
-            onChange={handleChange}
-            required
+          <MapPicker
+            onAddressSelect={(address) => {
+              setProject((prev) => ({ ...prev, address }));
+            }}
           />
         </Form.Group>
 
         <Form.Group className="edit-project-form-group">
-          <Form.Label className="edit-project-label">Total Construction Area (sqm)</Form.Label>
+          <Form.Label className="edit-project-label">
+            Total Construction Area (sqm)
+          </Form.Label>
           <Form.Control
             className="edit-project-input"
             type="number"
@@ -125,7 +146,9 @@ const EditProject = () => {
         </Form.Group>
 
         <Form.Group className="edit-project-form-group">
-          <Form.Label className="edit-project-label">Total Apartments</Form.Label>
+          <Form.Label className="edit-project-label">
+            Total Apartments
+          </Form.Label>
           <Form.Control
             className="edit-project-input"
             type="number"
@@ -198,14 +221,18 @@ const EditProject = () => {
 
         <Form.Group className="edit-project-form-group">
           <Form.Label className="edit-project-label">Project Images</Form.Label>
-          <ImageUpload 
+          <ImageUpload
             projectId={id}
             existingImages={projectImages}
             onImagesChange={setProjectImages}
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit" className="edit-project-submit-btn">
+        <Button
+          variant="primary"
+          type="submit"
+          className="edit-project-submit-btn"
+        >
           Update Project
         </Button>
       </Form>
@@ -213,4 +240,4 @@ const EditProject = () => {
   );
 };
 
-export default EditProject; 
+export default EditProject;

@@ -1,6 +1,7 @@
 // components/MapPicker.js
 import React, { useState } from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import "../styles/MapPicker.css";
 
 // Konya coordinates (center of Turkey)
 const defaultCenter = { lat: 37.866667, lng: 32.483333 };
@@ -10,7 +11,7 @@ const mapOptions = {
   fullscreenControl: false,
 };
 
-const MapPicker = ({ onAddressSelect }) => {
+const MapPicker = ({ onAddressSelect, initialAddress }) => {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });
@@ -36,11 +37,9 @@ const MapPicker = ({ onAddressSelect }) => {
   return (
     <div className="map-picker">
       <GoogleMap
+        mapContainerClassName="google-map"
         mapContainerStyle={{
           height: "400px",
-          width: "100%",
-          borderRadius: "4px",
-          marginTop: "10px",
         }}
         zoom={12}
         center={defaultCenter}
@@ -50,7 +49,7 @@ const MapPicker = ({ onAddressSelect }) => {
         {selectedLocation && <Marker position={selectedLocation} />}
       </GoogleMap>
 
-      <div className="map-instructions mt-2">
+      <div className="map-instructions">
         <small className="text-muted">
           Click on the map to select project location
         </small>
