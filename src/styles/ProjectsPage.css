@@ -3,11 +3,11 @@
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
   padding: 30px;
-  background-color: transparent;
   justify-items: center;
   position: relative;
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.5);
+  margin-top: 0;
 }
 
 .projects-container {
@@ -18,18 +18,20 @@
   position: relative;
   z-index: 1;
   text-align: center;
-  background-image: url('../assets/project-page-background2.jpg');
+  background-image: url("../assets/project-page-background2.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .projects-banner {
   width: 100%;
   height: 100vh;
-  background-image: url('../assets/project-page-background.jpg');
+  background-image: url("../assets/project-page-background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -38,11 +40,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 0;
 }
 
 .projects-banner::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -97,4 +99,3 @@
 .project-list a:hover {
   transform: translateY(-10px);
 }
-
