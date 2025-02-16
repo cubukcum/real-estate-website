@@ -1,0 +1,23 @@
+.map-picker {
+  margin-bottom: 1.5rem;
+}
+
+.map-picker .google-map {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 0.5rem;
+}
+
+.map-instructions {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.map-instructions small {
+  color: #6c757d;
+  font-size: 0.875rem;
+}
