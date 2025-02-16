@@ -58,9 +58,6 @@ const ProjectDetailPage = () => {
           <h1 className="pdp-title">{project.title}</h1>
           <div className="pdp-hero-meta">
             <span>
-              <i className="fas fa-map-marker-alt"></i> {project.address}
-            </span>
-            <span>
               <i className="fas fa-calendar"></i>{" "}
               {formatDate(project.deliverydate)}
             </span>
@@ -83,9 +80,11 @@ const ProjectDetailPage = () => {
           <div className="pdp-details-grid">
             <div>
               <p>
-                <strong>Location:</strong>
+                <strong>
+                  {config.siteContent.projectDetailPage.projectAddress}
+                </strong>
               </p>
-              <div style={{ height: "400px", marginBottom: "1rem" }}>
+              <div className="map-container">
                 <MapContainer
                   center={getCoordinates(project.address)}
                   zoom={15}
@@ -110,46 +109,56 @@ const ProjectDetailPage = () => {
                   Open in Google Maps
                 </a>
               </p>
-              <p>
-                <strong>
-                  {
-                    config.siteContent.projectDetailPage
-                      .projectTotalConstructionArea
-                  }
-                  :
-                </strong>{" "}
-                {project.totalconstructionarea}
-              </p>
-              <p>
-                <strong>
-                  {config.siteContent.projectDetailPage.projectTotalApartments}:
-                </strong>{" "}
-                {project.totalapartments}
-              </p>
-              <p>
-                <strong>
-                  {config.siteContent.projectDetailPage.projectRoomTypes}:
-                </strong>{" "}
-                {project.roomtype}
-              </p>
             </div>
-            <div>
-              <p>
-                <strong>
-                  {config.siteContent.projectDetailPage.projectStartDate}:
-                </strong>{" "}
-                {formatDate(project.startdate)}
-              </p>
-              <p>
-                <strong>
-                  {config.siteContent.projectDetailPage.projectCompletionDate}:
-                </strong>{" "}
-                {formatDate(project.deliverydate)}
-              </p>
-              <p>
-                <strong>Description:</strong>
-              </p>
-              <p>{project.description}</p>
+
+            <div className="project-info-section">
+              <div>
+                <p>
+                  <strong>
+                    {
+                      config.siteContent.projectDetailPage
+                        .projectTotalConstructionArea
+                    }
+                    :
+                  </strong>{" "}
+                  {project.totalconstructionarea}
+                </p>
+                <p>
+                  <strong>
+                    {
+                      config.siteContent.projectDetailPage
+                        .projectTotalApartments
+                    }
+                    :
+                  </strong>{" "}
+                  {project.totalapartments}
+                </p>
+                <p>
+                  <strong>
+                    {config.siteContent.projectDetailPage.projectRoomTypes}:
+                  </strong>{" "}
+                  {project.roomtype}
+                </p>
+              </div>
+              <div>
+                <p>
+                  <strong>
+                    {config.siteContent.projectDetailPage.projectStartDate}:
+                  </strong>{" "}
+                  {formatDate(project.startdate)}
+                </p>
+                <p>
+                  <strong>
+                    {config.siteContent.projectDetailPage.projectCompletionDate}
+                    :
+                  </strong>{" "}
+                  {formatDate(project.deliverydate)}
+                </p>
+                <p>
+                  <strong>Description:</strong>
+                </p>
+                <p>{project.description}</p>
+              </div>
             </div>
           </div>
         </div>
