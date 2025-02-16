@@ -21,6 +21,7 @@ const AddProjectForm = () => {
     description: "",
   });
   const [projectImages, setProjectImages] = useState([]);
+  const [createdProjectId, setCreatedProjectId] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,25 +38,10 @@ const AddProjectForm = () => {
       );
 
       const projectId = response.data.id;
+      setCreatedProjectId(projectId); // Store the project ID
 
-      // Then upload images with the new project ID
-      if (projectImages.length > 0) {
-        const formData = new FormData();
-
-        // Append all images to the same FormData
-        projectImages.forEach((image) => {
-          formData.append("images", image); // Change 'image' to 'images' if your API expects this
-        });
-        formData.append("project_id", projectId);
-
-        // Single request to upload all images
-        await axios.post(`${process.env.REACT_APP_API_URL}/upload`, formData, {
-          headers: {
-            Authorization: token,
-            "Content-Type": "multipart/form-data",
-          },
-        });
-      }
+      // If there are any pending images, they will be uploaded automatically
+      // by the ImageUpload component when it receives the new projectId
 
       navigate("/admin/manage-projects");
     } catch (error) {
@@ -201,7 +187,11 @@ const AddProjectForm = () => {
             <Form.Label>
               {configAdmin.addProjectForm.projectImagesTitle}
             </Form.Label>
-            <ImageUpload projectId={null} onImagesChange={setProjectImages} />
+            <ImageUpload
+              projectId={createdProjectId}
+              onImagesChange={setProjectImages}
+              allowUploadWithoutId={true}
+            />
           </Form.Group>
 
           <div className="button-group d-flex gap-2">
