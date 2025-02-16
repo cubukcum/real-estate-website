@@ -66,22 +66,26 @@ const ImageUpload = ({
     // If we have a project ID, upload immediately
     setUploading(true);
     try {
-      const formData = new FormData();
-      formData.append("image", files[0]);
-      formData.append("project_id", projectId);
+      const uploadedImages = [];
+      for (const file of files) {
+        const formData = new FormData();
+        formData.append("image", file);
+        formData.append("project_id", projectId);
 
-      const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/upload`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      onImagesChange([...existingImages, response.data]);
+        const response = await axios.post(
+          `${process.env.REACT_APP_API_URL}/upload`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        uploadedImages.push(response.data);
+      }
+      onImagesChange([...existingImages, ...uploadedImages]);
     } catch (error) {
-      console.error("Error uploading image:", error);
+      console.error("Error uploading images:", error);
     } finally {
       setUploading(false);
     }
