@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Container, Table, Button } from "react-bootstrap";
-import { BsPlusLg } from 'react-icons/bs';
-import { FiEdit } from 'react-icons/fi';
-import { RiDeleteBinLine } from 'react-icons/ri';
+import { BsPlusLg } from "react-icons/bs";
+import { FiEdit } from "react-icons/fi";
+import { RiDeleteBinLine } from "react-icons/ri";
 import "../styles/ManageProjects.css";
 import configAdmin from "../config.admin.json";
 
@@ -23,7 +23,11 @@ const ManageProjects = () => {
   }, [token]);
 
   const handleDelete = (id) => {
-    if (window.confirm("Are you sure you want to delete this project? This action cannot be undone.")) {
+    if (
+      window.confirm(
+        "Are you sure you want to delete this project? This action cannot be undone."
+      )
+    ) {
       axios
         .delete(`${process.env.REACT_APP_API_URL}/admin/delete-project/${id}`, {
           headers: { Authorization: token },
@@ -41,14 +45,14 @@ const ManageProjects = () => {
     <Container className="manage-projects-container">
       <div className="manage-projects-header">
         <h2>{configAdmin.manageProjects.manageProjectsTitle}</h2>
-        <Button 
-          variant="success" 
+        <Button
+          variant="success"
           onClick={() => navigate("/admin/add-project")}
         >
           <BsPlusLg /> {configAdmin.manageProjects.manageAddNewProjectTitle}
         </Button>
       </div>
-      
+
       <Table className="projects-table" striped bordered hover>
         <thead>
           <tr>
@@ -68,12 +72,16 @@ const ManageProjects = () => {
               <td>{project.address}</td>
               <td className="text-center">{project.totalapartments}</td>
               <td>
-                <span className={`status-badge ${
-                  project.availableforsale 
-                    ? 'status-available' 
-                    : 'status-unavailable'
-                }`}>
-                  {project.availableforsale ? 'Available' : 'Not Available'}
+                <span
+                  className={`status-badge ${
+                    project.availableforsale
+                      ? "status-available"
+                      : "status-unavailable"
+                  }`}
+                >
+                  {project.availableforsale
+                    ? configAdmin.manageProjects.statusLabels.available
+                    : configAdmin.manageProjects.statusLabels.notAvailable}
                 </span>
               </td>
               <td className="action-buttons">
@@ -82,14 +90,14 @@ const ManageProjects = () => {
                   size="sm"
                   onClick={() => handleEdit(project.id)}
                 >
-                  <FiEdit /> Edit
+                  {configAdmin.manageProjects.editProjectButton}
                 </Button>
                 <Button
                   variant="outline-danger"
                   size="sm"
                   onClick={() => handleDelete(project.id)}
                 >
-                  <RiDeleteBinLine /> Delete
+                  {configAdmin.manageProjects.deleteProjectButton}
                 </Button>
               </td>
             </tr>

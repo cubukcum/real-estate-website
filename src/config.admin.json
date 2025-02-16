@@ -74,7 +74,9 @@
       "Total Apartments",
       "Status",
       "Actions"
-    ]
+    ],
+    "editProjectButton": "Edit",
+    "deleteProjectButton": "Delete"
   },
   "projects": {
     "tableColumns": [
