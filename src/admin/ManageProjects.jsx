@@ -80,8 +80,8 @@ const ManageProjects = () => {
                   }`}
                 >
                   {project.availableforsale
-                    ? configAdmin.manageProjects.statusLabels.available
-                    : configAdmin.manageProjects.statusLabels.notAvailable}
+                    ? configAdmin.projects.statusLabels.available
+                    : configAdmin.projects.statusLabels.notAvailable}
                 </span>
               </td>
               <td className="action-buttons">
