@@ -86,6 +86,7 @@ const AddProjectForm = () => {
                   onAddressSelect={(address) => {
                     setProject((prev) => ({ ...prev, address }));
                   }}
+                  initialAddress={project.address}
                 />
               </Form.Group>
 

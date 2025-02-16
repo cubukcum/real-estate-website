@@ -1,5 +1,5 @@
 // components/MapPicker.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import "../styles/MapPicker.css";
 
@@ -15,7 +15,19 @@ const MapPicker = ({ onAddressSelect, initialAddress }) => {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });
-  const [selectedLocation, setSelectedLocation] = useState(null);
+  const [selectedLocation, setSelectedLocation] = useState(defaultCenter);
+
+  // Add useEffect to set initial address if none selected
+  useEffect(() => {
+    if (isLoaded && !initialAddress) {
+      const geocoder = new window.google.maps.Geocoder();
+      geocoder.geocode({ location: defaultCenter }, (results, status) => {
+        if (status === "OK" && results[0]) {
+          onAddressSelect(results[0].formatted_address);
+        }
+      });
+    }
+  }, [isLoaded, initialAddress, onAddressSelect]);
 
   const handleMapClick = async (event) => {
     const lat = event.latLng.lat();
@@ -42,11 +54,11 @@ const MapPicker = ({ onAddressSelect, initialAddress }) => {
           height: "400px",
         }}
         zoom={12}
-        center={defaultCenter}
+        center={selectedLocation || defaultCenter}
         onClick={handleMapClick}
         options={mapOptions}
       >
-        {selectedLocation && <Marker position={selectedLocation} />}
+        <Marker position={selectedLocation || defaultCenter} />
       </GoogleMap>
 
       <div className="map-instructions">
