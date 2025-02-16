@@ -24,14 +24,14 @@
     "homePage": {
       "bannerTitle": "Building Dreams Into Reality",
       "bannerSubtitle": "Discover our portfolio of exceptional real estate developments, where luxury meets comfort and innovation meets tradition.",
-      "achievementsSection":{
+      "achievementsSection": {
         "title": "Our Achievements",
         "label1": "Completed Projects",
         "label2": "Apartments Delivered",
         "label3": "Families Housed",
         "label4": "Awards Won"
       },
-      "featuresSection":{
+      "featuresSection": {
         "title": "Our Features",
         "feature1": "High-Quality Construction",
         "feature1Description": "We build homes to last with the finest materials and modern designs.",
@@ -43,43 +43,31 @@
         "feature4Description": "Our designs are sustainable and environmentally conscious.",
         "whyChooseUsTitle": "Why Choose Us"
       },
-      "topBanner":{
+      "topBanner": {
         "title": "Welcome to ",
         "subtitle": "Building Dreams, Brick by Brick. Discover Your Perfect Home.",
         "buttonText": "Explore Projects"
       }
     },
-    "navbar":{
-      "home":"Home",
-      "about":"About",
-      "projects":"Projects",
-      "contact":"Contact"
+    "navbar": {
+      "home": "Home",
+      "about": "About",
+      "projects": "Projects",
+      "contact": "Contact"
     },
-    "footer":{
+    "footer": {
       "companyDescription": "Building the future, one project at a time.",
       "allRightsReserved": "All rights reserved.",
-      "quickLinks":[
-        "Quick Links",
-        "Home",
-        "About",
-        "Projects",
-        "Contact"
-      ],
-      "contactUs":{
-        "titles":[
-          "Contact Us",
-          "Email",
-          "Phone",
-          "Address"
-        ]
+      "quickLinks": ["Quick Links", "Home", "About", "Projects", "Contact"],
+      "contactUs": {
+        "titles": ["Contact Us", "Email", "Phone", "Address"]
       },
-      "followusTitle":"Follow Us"
-
+      "followusTitle": "Follow Us"
     },
     "projectsPage": {
       "bannerTitle": "Our Projects",
       "bannerDescription": "Discover our portfolio of exceptional real estate developments, where luxury meets comfort and innovation meets tradition.",
-      "projectCard":{
+      "projectCard": {
         "title": "Project Title",
         "startDate": "Start Date",
         "deliveryDate": "Delivery Date",
@@ -98,7 +86,8 @@
       "projectRoomTypes": "Room Types",
       "projectStartDate": "Start Date",
       "projectCompletionDate": "Completion Date",
-      "projectGalleryTitle": "Gallery"
+      "projectGalleryTitle": "Gallery",
+      "projectOpenInGoogleMaps": "Open in Google Maps"
     },
     "contactPage": {
       "title": "Let's Connect",
@@ -147,4 +136,4 @@
     "title": "Real Estate Construction",
     "description": "Web site created using create-react-app"
   }
-} 
+}

@@ -98,7 +98,6 @@ const ProjectDetailPage = () => {
                 </MapContainer>
               </div>
               <p>
-                <strong>View on Google Maps:</strong>{" "}
                 <a
                   href={`https://maps.google.com/?q=${getCoordinates(
                     project.address
@@ -106,7 +105,7 @@ const ProjectDetailPage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Open in Google Maps
+                  {config.siteContent.projectDetailPage.projectOpenInGoogleMaps}
                 </a>
               </p>
             </div>
