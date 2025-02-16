@@ -202,14 +202,14 @@ const AddProjectForm = () => {
           </Form.Group>
 
           <div className="button-group d-flex gap-2">
-            <Button variant="primary" type="submit">
-              {configAdmin.addProjectForm.projecAddNewButton}
-            </Button>
             <Button
               variant="secondary"
               onClick={() => navigate("/admin/manage-projects")}
             >
-              {configAdmin.addProjectForm.projecCancelButton}
+              {configAdmin.addProjectForm.projectCancelButton}
+            </Button>
+            <Button variant="primary" type="submit">
+              {configAdmin.addProjectForm.projectAddNewButton}
             </Button>
           </div>
         </Form>
