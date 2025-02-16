@@ -1,9 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../styles/ProjectDetailPage.css";
-import background1 from "../assets/about-page/background1.jpg";
 import axios from "axios";
 import config from "../config.json";
+import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+
+// Fix for default marker icon
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
+  iconUrl: require("leaflet/dist/images/marker-icon.png"),
+  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
+});
+
 const ProjectDetailPage = () => {
   const { id } = useParams();
   const [project, setProject] = useState(null);
@@ -12,6 +23,14 @@ const ProjectDetailPage = () => {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", { year: "numeric", month: "long" });
+  };
+
+  // Add this function to parse coordinates
+  const getCoordinates = (addressString) => {
+    const [lat, lng] = addressString
+      .split(",")
+      .map((coord) => parseFloat(coord));
+    return [lat, lng];
   };
 
   useEffect(() => {
@@ -64,13 +83,31 @@ const ProjectDetailPage = () => {
           <div className="pdp-details-grid">
             <div>
               <p>
-                <strong>Address:</strong>{" "}
+                <strong>Location:</strong>
+              </p>
+              <div style={{ height: "400px", marginBottom: "1rem" }}>
+                <MapContainer
+                  center={getCoordinates(project.address)}
+                  zoom={15}
+                  style={{ height: "100%", width: "100%" }}
+                >
+                  <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
+                  <Marker position={getCoordinates(project.address)} />
+                </MapContainer>
+              </div>
+              <p>
+                <strong>View on Google Maps:</strong>{" "}
                 <a
-                  href={`https://maps.google.com/?q=${project.address}`}
+                  href={`https://maps.google.com/?q=${getCoordinates(
+                    project.address
+                  ).join(",")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {project.address}
+                  Open in Google Maps
                 </a>
               </p>
               <p>
