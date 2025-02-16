@@ -3,7 +3,7 @@ import { Carousel } from "react-bootstrap";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import sampleImage1 from "../assets/sample-project1.jpeg";
-
+import "../styles/ProjectsSlider.css";
 const ProjectsSlider = () => {
   const [projects, setProjects] = useState([]);
 
@@ -15,35 +15,53 @@ const ProjectsSlider = () => {
   }, []);
 
   return (
-    <div className="projects-slider">
-      <h2 className="text-center mb-4">Featured Projects</h2>
-      <Carousel
-        interval={5000}
-        className="custom-carousel"
-        indicators={true}
-        controls={true}
-      >
-        {projects.map((project) => (
-          <Carousel.Item key={project.id}>
-            <Link
-              to={`/projects/${project.id}`}
-              className="text-decoration-none"
-            >
-              <div className="carousel-project">
-                <img
-                  src={project.mainImage || sampleImage1}
-                  alt={project.title}
-                  className="carousel-project-image"
-                />
-                <div className="carousel-project-overlay">
-                  <h3 className="carousel-project-title">{project.title}</h3>
+    <section className="bg-light py-5">
+      <div className="container text-center">
+        <h2 className="mb-4 position-relative d-inline-block">
+          Featured Projects
+        </h2>
+        <Carousel
+          interval={5000}
+          className="projects-carousel"
+          indicators={true}
+          controls={true}
+          pause="hover"
+        >
+          {projects.map((project) => (
+            <Carousel.Item key={project.id}>
+              <Link
+                to={`/projects/${project.id}`}
+                className="text-decoration-none"
+              >
+                <div className="position-relative">
+                  <img
+                    src={project.mainImage || sampleImage1}
+                    alt={project.title}
+                    className="d-block w-100 project-image"
+                    style={{ height: "550px", objectFit: "cover" }}
+                  />
+                  <Carousel.Caption className="text-start project-caption">
+                    <h3
+                      className="text-white"
+                      style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.8)" }}
+                    >
+                      {project.title}
+                    </h3>
+                    <p
+                      className="text-white"
+                      style={{ textShadow: "1px 1px 3px rgba(0,0,0,0.8)" }}
+                    >
+                      {project.description?.substring(0, 120)}
+                      {project.description?.length > 120 ? "..." : ""}
+                    </p>
+                  </Carousel.Caption>
                 </div>
-              </div>
-            </Link>
-          </Carousel.Item>
-        ))}
-      </Carousel>
-    </div>
+              </Link>
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      </div>
+    </section>
   );
 };
 
