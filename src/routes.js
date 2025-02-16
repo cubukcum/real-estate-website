@@ -15,7 +15,7 @@ import Footer from "./components/Footer";
 import AdminLayout from "./layouts/AdminLayout";
 import MaintenancePage from "./pages/MaintenancePage";
 
-const MAINTENANCE_MODE = true; // You can toggle this to true/false
+const MAINTENANCE_MODE = false; // You can toggle this to true/false
 const BYPASS_KEY = "bypass_maintenance"; // This will be used in the URL
 
 function App() {

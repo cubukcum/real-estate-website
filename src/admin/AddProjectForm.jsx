@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import '../styles/AddProjectForm.css';
-import ImageUpload from '../components/ImageUpload';
-import configAdmin from "../config.admin.json"
+import "../styles/AddProjectForm.css";
+import ImageUpload from "../components/ImageUpload";
+import configAdmin from "../config.admin.json";
+import MapPicker from "../components/MapPicker";
+
 const AddProjectForm = () => {
   const navigate = useNavigate();
   const [project, setProject] = useState({
@@ -16,7 +18,7 @@ const AddProjectForm = () => {
     startDate: "",
     deliveryDate: "",
     availableForSale: false,
-    description: ""
+    description: "",
   });
   const [projectImages, setProjectImages] = useState([]);
 
@@ -29,22 +31,26 @@ const AddProjectForm = () => {
         `${process.env.REACT_APP_API_URL}/admin/add-project`,
         project,
         {
-          headers: { Authorization: token }
+          headers: { Authorization: token },
         }
       );
-      
+
       if (projectImages.length > 0) {
         const projectId = response.data.id;
         const uploadPromises = projectImages.map(async (image) => {
           const formData = new FormData();
-          formData.append('image', image);
-          formData.append('project_id', projectId);
-          
-          return axios.post(`${process.env.REACT_APP_API_URL}/upload`, formData, {
-            headers: { Authorization: token }
-          });
+          formData.append("image", image);
+          formData.append("project_id", projectId);
+
+          return axios.post(
+            `${process.env.REACT_APP_API_URL}/upload`,
+            formData,
+            {
+              headers: { Authorization: token },
+            }
+          );
         });
-        
+
         await Promise.all(uploadPromises);
       }
 
@@ -57,9 +63,9 @@ const AddProjectForm = () => {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setProject(prev => ({
+    setProject((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
@@ -71,7 +77,9 @@ const AddProjectForm = () => {
           <Row>
             <Col md={6}>
               <Form.Group className="mb-3">
-                <Form.Label>{configAdmin.addProjectForm.projectAddNewTitle}</Form.Label>
+                <Form.Label>
+                  {configAdmin.addProjectForm.projectAddNewTitle}
+                </Form.Label>
                 <Form.Control
                   type="text"
                   name="title"
@@ -82,18 +90,20 @@ const AddProjectForm = () => {
               </Form.Group>
 
               <Form.Group className="mb-3">
-                <Form.Label>{configAdmin.addProjectForm.projectAddressTitle}</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="address"
-                  value={project.address}
-                  onChange={handleChange}
-                  required
+                <Form.Label>
+                  {configAdmin.addProjectForm.projectAddressTitle}
+                </Form.Label>
+                <MapPicker
+                  onAddressSelect={(address) => {
+                    setProject((prev) => ({ ...prev, address }));
+                  }}
                 />
               </Form.Group>
 
               <Form.Group className="mb-3">
-                <Form.Label>{configAdmin.addProjectForm.projectTotalAreaTitle}</Form.Label>
+                <Form.Label>
+                  {configAdmin.addProjectForm.projectTotalAreaTitle}
+                </Form.Label>
                 <Form.Control
                   type="number"
                   name="totalConstructionArea"
@@ -104,7 +114,9 @@ const AddProjectForm = () => {
               </Form.Group>
 
               <Form.Group className="mb-3">
-                <Form.Label>{configAdmin.addProjectForm.projectTotalApartmentsTitle}</Form.Label>
+                <Form.Label>
+                  {configAdmin.addProjectForm.projectTotalApartmentsTitle}
+                </Form.Label>
                 <Form.Control
                   type="number"
                   name="totalApartments"
@@ -117,7 +129,9 @@ const AddProjectForm = () => {
 
             <Col md={6}>
               <Form.Group className="mb-3">
-                <Form.Label>{configAdmin.addProjectForm.projectRoomTypesTitle}</Form.Label>
+                <Form.Label>
+                  {configAdmin.addProjectForm.projectRoomTypesTitle}
+                </Form.Label>
                 <Form.Control
                   type="text"
                   name="roomType"
@@ -129,7 +143,9 @@ const AddProjectForm = () => {
               </Form.Group>
 
               <Form.Group className="mb-3">
-                <Form.Label>{configAdmin.addProjectForm.projectStartTitle}</Form.Label>
+                <Form.Label>
+                  {configAdmin.addProjectForm.projectStartTitle}
+                </Form.Label>
                 <Form.Control
                   type="date"
                   name="startDate"
@@ -140,7 +156,9 @@ const AddProjectForm = () => {
               </Form.Group>
 
               <Form.Group className="mb-3">
-                <Form.Label>{configAdmin.addProjectForm.projectDeliveryTitle}</Form.Label>
+                <Form.Label>
+                  {configAdmin.addProjectForm.projectDeliveryTitle}
+                </Form.Label>
                 <Form.Control
                   type="date"
                   name="deliveryDate"
@@ -153,7 +171,9 @@ const AddProjectForm = () => {
           </Row>
 
           <Form.Group className="mb-3">
-            <Form.Label>{configAdmin.addProjectForm.projectDescripton}</Form.Label>
+            <Form.Label>
+              {configAdmin.addProjectForm.projectDescripton}
+            </Form.Label>
             <Form.Control
               as="textarea"
               rows={4}
@@ -175,19 +195,21 @@ const AddProjectForm = () => {
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>{configAdmin.addProjectForm.projectImagesTitle}</Form.Label>
-            <ImageUpload 
-              projectId={null}
-              onImagesChange={setProjectImages}
-            />
+            <Form.Label>
+              {configAdmin.addProjectForm.projectImagesTitle}
+            </Form.Label>
+            <ImageUpload projectId={null} onImagesChange={setProjectImages} />
           </Form.Group>
 
           <div className="button-group d-flex gap-2">
             <Button variant="primary" type="submit">
-            {configAdmin.addProjectForm.projecAddNewButton}
+              {configAdmin.addProjectForm.projecAddNewButton}
             </Button>
-            <Button variant="secondary" onClick={() => navigate("/admin/manage-projects")}>
-            {configAdmin.addProjectForm.projecCancelButton}
+            <Button
+              variant="secondary"
+              onClick={() => navigate("/admin/manage-projects")}
+            >
+              {configAdmin.addProjectForm.projecCancelButton}
             </Button>
           </div>
         </Form>
@@ -196,4 +218,4 @@ const AddProjectForm = () => {
   );
 };
 
-export default AddProjectForm; 
+export default AddProjectForm;
