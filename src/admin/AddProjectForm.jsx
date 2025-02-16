@@ -27,6 +27,7 @@ const AddProjectForm = () => {
     const token = localStorage.getItem("token");
 
     try {
+      // First create the project
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/admin/add-project`,
         project,
@@ -35,23 +36,25 @@ const AddProjectForm = () => {
         }
       );
 
+      const projectId = response.data.id;
+
+      // Then upload images with the new project ID
       if (projectImages.length > 0) {
-        const projectId = response.data.id;
-        const uploadPromises = projectImages.map(async (image) => {
-          const formData = new FormData();
-          formData.append("image", image);
-          formData.append("project_id", projectId);
+        const formData = new FormData();
 
-          return axios.post(
-            `${process.env.REACT_APP_API_URL}/upload`,
-            formData,
-            {
-              headers: { Authorization: token },
-            }
-          );
+        // Append all images to the same FormData
+        projectImages.forEach((image) => {
+          formData.append("images", image); // Change 'image' to 'images' if your API expects this
         });
+        formData.append("project_id", projectId);
 
-        await Promise.all(uploadPromises);
+        // Single request to upload all images
+        await axios.post(`${process.env.REACT_APP_API_URL}/upload`, formData, {
+          headers: {
+            Authorization: token,
+            "Content-Type": "multipart/form-data",
+          },
+        });
       }
 
       navigate("/admin/manage-projects");
