@@ -5,7 +5,17 @@ import axios from "axios";
 import "../styles/AddProjectForm.css";
 import ImageUpload from "../components/ImageUpload";
 import configAdmin from "../config.admin.json";
-import MapPicker from "../components/MapPicker";
+import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+
+// Fix for default marker icon
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
+  iconUrl: require("leaflet/dist/images/marker-icon.png"),
+  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
+});
 
 const AddProjectForm = () => {
   const navigate = useNavigate();
@@ -22,6 +32,23 @@ const AddProjectForm = () => {
   });
   const [projectImages, setProjectImages] = useState([]);
   const [createdProjectId, setCreatedProjectId] = useState(null);
+  const [selectedPosition, setSelectedPosition] = useState(null);
+
+  function MapClickHandler() {
+    useMapEvents({
+      click: async (e) => {
+        const { lat, lng } = e.latlng;
+        setSelectedPosition([lat, lng]);
+
+        // Store coordinates as a comma-separated string
+        setProject((prev) => ({
+          ...prev,
+          address: `${lat},${lng}`,
+        }));
+      },
+    });
+    return null;
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -82,11 +109,27 @@ const AddProjectForm = () => {
                 <Form.Label>
                   {configAdmin.addProjectForm.projectAddressTitle}
                 </Form.Label>
-                <MapPicker
-                  onAddressSelect={(address) => {
-                    setProject((prev) => ({ ...prev, address }));
-                  }}
-                  initialAddress={project.address}
+                <div style={{ height: "400px", marginBottom: "1rem" }}>
+                  <MapContainer
+                    center={[37.8719, 32.4844]}
+                    zoom={13}
+                    style={{ height: "100%", width: "100%" }}
+                  >
+                    <TileLayer
+                      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <MapClickHandler />
+                    {selectedPosition && <Marker position={selectedPosition} />}
+                  </MapContainer>
+                </div>
+                <Form.Control
+                  type="text"
+                  name="address"
+                  value={project.address}
+                  readOnly
+                  placeholder="Click on the map to set coordinates"
+                  required
                 />
               </Form.Group>
 

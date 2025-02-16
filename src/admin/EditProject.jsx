@@ -4,7 +4,17 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../styles/EditProject.css";
 import ImageUpload from "../components/ImageUpload";
-import MapPicker from "../components/MapPicker";
+import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+
+// Fix for default marker icon
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
+  iconUrl: require("leaflet/dist/images/marker-icon.png"),
+  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
+});
 
 const EditProject = () => {
   const { id } = useParams();
@@ -23,6 +33,7 @@ const EditProject = () => {
     description: "",
   });
   const [projectImages, setProjectImages] = useState([]);
+  const [selectedPosition, setSelectedPosition] = useState(null);
 
   useEffect(() => {
     const fetchProjectAndImages = async () => {
@@ -39,6 +50,15 @@ const EditProject = () => {
           deliverydate: projectResponse.data.deliverydate.split("T")[0],
           availableforsale: projectResponse.data.availableforsale,
         };
+
+        // Set the selected position if address contains coordinates
+        if (projectData.address) {
+          const [lat, lng] = projectData.address.split(",").map(Number);
+          if (!isNaN(lat) && !isNaN(lng)) {
+            setSelectedPosition([lat, lng]);
+          }
+        }
+
         setProject(projectData);
 
         const imagesResponse = await axios.get(
@@ -89,6 +109,22 @@ const EditProject = () => {
     }
   };
 
+  function MapClickHandler() {
+    useMapEvents({
+      click: async (e) => {
+        const { lat, lng } = e.latlng;
+        setSelectedPosition([lat, lng]);
+
+        // Store coordinates as a comma-separated string
+        setProject((prev) => ({
+          ...prev,
+          address: `${lat},${lng}`,
+        }));
+      },
+    });
+    return null;
+  }
+
   return (
     <Container className="edit-project-container">
       <h2 className="edit-project-title">Edit Project</h2>
@@ -124,10 +160,32 @@ const EditProject = () => {
 
         <Form.Group className="edit-project-form-group">
           <Form.Label className="edit-project-label">Address</Form.Label>
-          <MapPicker
-            onAddressSelect={(address) => {
-              setProject((prev) => ({ ...prev, address }));
-            }}
+          <div style={{ height: "400px", marginBottom: "1rem" }}>
+            <MapContainer
+              center={selectedPosition || [37.8719, 32.4844]} // Use selected position if available, otherwise default to Konya
+              zoom={13}
+              style={{ height: "100%", width: "100%" }}
+              key={
+                selectedPosition
+                  ? `${selectedPosition[0]}-${selectedPosition[1]}`
+                  : "default"
+              } // Force re-render when position changes
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <MapClickHandler />
+              {selectedPosition && <Marker position={selectedPosition} />}
+            </MapContainer>
+          </div>
+          <Form.Control
+            className="edit-project-input"
+            type="text"
+            name="address"
+            value={project.address}
+            onChange={handleChange}
+            required
           />
         </Form.Group>
 
