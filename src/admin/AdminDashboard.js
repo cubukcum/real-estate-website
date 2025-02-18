@@ -5,6 +5,7 @@ import { Card, Row, Col, Container } from "react-bootstrap";
 import { FaUsers, FaProjectDiagram, FaChartLine } from "react-icons/fa";
 import "../styles/AdminDashboard.css";
 import configAdmin from "../config.admin.json";
+
 const AdminDashboard = () => {
   const [stats, setStats] = useState({
     totalUsers: 0,
@@ -51,6 +52,17 @@ const AdminDashboard = () => {
     },
   ];
 
+  const handleQuickAction = (action) => {
+    switch (action) {
+      case configAdmin.dashboard.sections.quickActions.actions[0]:
+        navigate("/admin/messages");
+        break;
+      // Add other cases as needed
+      default:
+        break;
+    }
+  };
+
   return (
     <Container fluid className="admin-dashboard">
       <h2 className="dashboard-title">{configAdmin.dashboard.title}</h2>
@@ -80,7 +92,13 @@ const AdminDashboard = () => {
             <Card.Body>
               <h5>{configAdmin.dashboard.sections.quickActions.title}</h5>
               <div className="quick-actions-grid">
-                <button>
+                <button
+                  onClick={() =>
+                    handleQuickAction(
+                      configAdmin.dashboard.sections.quickActions.actions[0]
+                    )
+                  }
+                >
                   {configAdmin.dashboard.sections.quickActions.actions[0]}
                 </button>
                 <button>
