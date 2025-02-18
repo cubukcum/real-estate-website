@@ -17,7 +17,6 @@ const AboutPage = () => {
         }}
       >
         <div className="hero-content">
-          <h1>{config.companyInfo.name}</h1>
           <p className="hero-subtitle">
             {config.siteContent.aboutPage.heroTitle}
           </p>
