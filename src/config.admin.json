@@ -8,7 +8,12 @@
       },
       "quickActions": {
         "title": "Quick Actions",
-        "actions": ["Manage Users", "Settings", "View Reports", "System Logs"]
+        "actions": [
+          "Received Messages",
+          "Settings",
+          "View Reports",
+          "System Logs"
+        ]
       },
       "systemStatus": {
         "title": "System Status",

@@ -53,7 +53,7 @@ const AdminDashboard = () => {
 
   return (
     <Container fluid className="admin-dashboard">
-      <h2 className="dashboard-title">{ configAdmin.dashboard.title }</h2>
+      <h2 className="dashboard-title">{configAdmin.dashboard.title}</h2>
       <Row className="mt-4">
         {dashboardCards.map((card, index) => (
           <Col key={index} md={4} sm={6} className="mb-4">
@@ -78,40 +78,46 @@ const AdminDashboard = () => {
         <Col md={6} className="mb-4">
           <Card className="quick-actions-card">
             <Card.Body>
-              <h5>{ configAdmin.dashboard.sections.quickActions.title }</h5>
+              <h5>{configAdmin.dashboard.sections.quickActions.title}</h5>
               <div className="quick-actions-grid">
-                <button onClick={() => navigate("/admin/users")}>
-                  { configAdmin.dashboard.sections.quickActions.actions[0] }
+                <button>
+                  {configAdmin.dashboard.sections.quickActions.actions[0]}
                 </button>
-                <button onClick={() => navigate("/admin/settings")}>
-                  { configAdmin.dashboard.sections.quickActions.actions[1] }
+                <button>
+                  {configAdmin.dashboard.sections.quickActions.actions[1]}
                 </button>
-                <button onClick={() => navigate("/admin/reports")}>
-                  { configAdmin.dashboard.sections.quickActions.actions[2] }
+                <button>
+                  {configAdmin.dashboard.sections.quickActions.actions[2]}
                 </button>
-                <button onClick={() => navigate("/admin/logs")}>
-                  { configAdmin.dashboard.sections.quickActions.actions[3] }
+                <button>
+                  {configAdmin.dashboard.sections.quickActions.actions[3]}
                 </button>
               </div>
             </Card.Body>
           </Card>
         </Col>
-        
+
         <Col md={6} className="mb-4">
           <Card className="system-status-card">
             <Card.Body>
               <h5>{configAdmin.dashboard.sections.systemStatus.title}</h5>
               {/* Add system status information here */}
               <div className="status-item">
-                <span>{configAdmin.dashboard.sections.systemStatus.items[0]}:</span>
+                <span>
+                  {configAdmin.dashboard.sections.systemStatus.items[0]}:
+                </span>
                 <span className="status-badge success">Online</span>
               </div>
               <div className="status-item">
-                <span>{configAdmin.dashboard.sections.systemStatus.items[1]}:</span>
+                <span>
+                  {configAdmin.dashboard.sections.systemStatus.items[1]}:
+                </span>
                 <span>2 hours ago</span>
               </div>
               <div className="status-item">
-                <span>{configAdmin.dashboard.sections.systemStatus.items[2]}:</span>
+                <span>
+                  {configAdmin.dashboard.sections.systemStatus.items[2]}:
+                </span>
                 <span>Normal</span>
               </div>
             </Card.Body>
