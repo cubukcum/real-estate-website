@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import { BsTelephone, BsEnvelope, BsPinMap } from "react-icons/bs";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
@@ -7,9 +7,46 @@ import "../styles/ContactPage.css";
 import config from "../config.json";
 
 const ContactPage = () => {
-  const handleSubmit = (e) => {
+  const [formStatus, setFormStatus] = useState({ type: "", message: "" });
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Form submitted!");
+    const formData = {
+      name: e.target.elements[0].value,
+      email: e.target.elements[1].value,
+      message: e.target.elements[2].value,
+    };
+
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/messages`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (response.ok) {
+        setFormStatus({
+          type: "success",
+          message: "Message sent successfully!",
+        });
+        e.target.reset(); // Clear the form
+      } else {
+        setFormStatus({
+          type: "error",
+          message: "Failed to send message. Please try again.",
+        });
+      }
+    } catch (error) {
+      setFormStatus({
+        type: "error",
+        message: "An error occurred. Please try again later.",
+      });
+    }
   };
 
   return (
@@ -94,6 +131,17 @@ const ContactPage = () => {
             <h3 className="contact-subtitle">
               {config.siteContent.contactPage.formTitle}
             </h3>
+            {formStatus.message && (
+              <div
+                className={`alert ${
+                  formStatus.type === "success"
+                    ? "alert-success"
+                    : "alert-danger"
+                }`}
+              >
+                {formStatus.message}
+              </div>
+            )}
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3">
                 <Form.Control
