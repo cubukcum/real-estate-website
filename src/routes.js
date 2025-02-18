@@ -14,7 +14,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AdminLayout from "./layouts/AdminLayout";
 import MaintenancePage from "./pages/MaintenancePage";
-
+import MessagesPage from "./admin/MessagesPage";
 const MAINTENANCE_MODE = false; // You can toggle this to true/false
 const BYPASS_KEY = "bypass_maintenance"; // This will be used in the URL
 
@@ -90,6 +90,16 @@ function App() {
             <ProtectedRoute>
               <AdminLayout>
                 <AdminDashboard />
+              </AdminLayout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/messages"
+          element={
+            <ProtectedRoute>
+              <AdminLayout>
+                <MessagesPage />
               </AdminLayout>
             </ProtectedRoute>
           }
